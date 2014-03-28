@@ -19,7 +19,6 @@ window.Controls = (function() {
      * and touch devices.
      * @constructor
      */
-
     var Controls = function() {
         this._didJump = false;
         this.keys = {};
@@ -61,5 +60,4 @@ window.Controls = (function() {
     
     // Export singleton.
     return new Controls();
-    
 })();
