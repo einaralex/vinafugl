@@ -4,4 +4,4 @@ node_modules
 app/bower_components
 test/bower_components
 dist
-.tmp/
+.tmp/concat
