@@ -21,6 +21,7 @@ window.Controls = (function() {
      */
     var Controls = function() {
         this._didJump = false;
+        this.freeFalling = false;
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
@@ -31,6 +32,8 @@ window.Controls = (function() {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
+            console.log("Did jump?");
+            console.log(this._didJump);
         }
 
         // Remember that this button is down.
@@ -44,6 +47,14 @@ window.Controls = (function() {
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
             var keyName = KEYS[e.keyCode];
+
+            if (this._didJump)
+            {
+                this.freeFalling = true;
+                console.log("Now free falling.");
+            }
+
+            console.log(keyName);
             this.keys[keyName] = false;
             return false;
         }
@@ -57,6 +68,15 @@ window.Controls = (function() {
         this._didJump = false;
         return answer;
     };
+
+    Controls.prototype.isFreeFalling = function() {
+        var answer = this.freeFalling;
+        return answer;
+    };
+
+    Controls.prototype.setNotFreeFalling = function() {
+        
+    }
     
     // Export singleton.
     return new Controls();
