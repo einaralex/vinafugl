@@ -9,7 +9,10 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
+		console.log(this.el);
+
 		this.player = new window.Player(this.el.find('.Player'), this);
+		
 		this.entities = [];
 		this.platformsEl = el.find('.platforms');
 		this.entitiesEl = el.find('.entities');
@@ -17,6 +20,7 @@ window.Game = (function() {
 		this.isPlaying = false;
 		this.onFrame = this.onFrame.bind(this);
 	};
+
 
 	Game.prototype.freezeGame = function() {
 		this.isPlaying = false;
@@ -140,6 +144,7 @@ window.Game = (function() {
 				});
 	};
 
+
 	Game.prototype.forEachPlatform = function(handler) {
 		console.log('Mundu mig');
 		console.log(this.entities);
@@ -161,7 +166,6 @@ window.Game = (function() {
 			}
 		}*/
 	};
-
 
 
 
