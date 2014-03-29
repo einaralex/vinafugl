@@ -6,4 +6,19 @@
 	height: 5em;
 	background: black;
 
+	animation:slidein 1s infinite;
+	-webkit-animation:slidein 1s infinite;
+
+}
+
+@keyframes slidein 
+{
+	0%   {top:0px;}
+	75%  {top:20px}
+}
+
+@-webkit-keyframes slidein /* Safari and Chrome */
+{
+	0%   {top:0px;}
+	75%  {top:20px}
 }

@@ -5,8 +5,8 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 30; // * 10 pixels per second
-	var FALLSPEED = 10;
+	var SPEED = 180; // * 10 pixels per second
+	var FALLSPEED = 5;
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -40,10 +40,10 @@ window.Player = (function() {
 			this.pos.y -= delta * SPEED;
 		}
 
-		if (Controls.keys.space && Controls.isFreeFalling())
+		/*if (Controls.keys.space && Controls.isFreeFalling())
 		{
 			console.log("jardaber");
-		}
+		}*/
 
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
@@ -52,7 +52,7 @@ window.Player = (function() {
 
 		if (Controls.freeFalling) {
 			//this.pos.x += delta * FALLSPEED;
-			this.pos.y += delta * FALLSPEED;
+			this.pos.y += delta * FALLSPEED * 9.81;
 		}
 
 		this.checkCollisionWithBounds();
