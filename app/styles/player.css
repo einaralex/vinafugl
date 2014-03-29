@@ -32,14 +32,11 @@
   
   background: yellow;
   transform-origin: top center;
-  animation: 1s flap alternate infinite;
+  animation: 0.4s flap alternate infinite;
+  -webkit-animation:flap 1s infinite;
 }
 
 @-webkit-keyframes flap {
-  from {
-    transform: rotateX(0);
-  }
-  to {
-    transform: rotateX(180deg);
-  }
+ 	0% { -webkit-transform: rotateX(0deg) ;}
+  50% { -webkit-transform: rotateX(65deg) ;}
 }
