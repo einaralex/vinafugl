@@ -14,8 +14,14 @@ window.Player = (function() {
 
 	var Player = function(el, game) {
 		this.el = el;
+		console.log("Party");
+		console.log(this.el);
 		this.game = game;
+		console.log("Party2");
+		console.log(this.game);
 		this.pos = { x: 0, y: 0 };
+		console.log("Party3");
+		console.log(this.pos);
 	};
 
 	/**
@@ -40,11 +46,6 @@ window.Player = (function() {
 			this.pos.y -= delta * SPEED;
 		}
 
-		/*if (Controls.keys.space && Controls.isFreeFalling())
-		{
-			console.log("jardaber");
-		}*/
-
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
@@ -62,10 +63,14 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x < 0 ||
-			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
-			this.pos.y < 0 ||
-			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+		if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y < 0 || this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			return this.game.gameover();
+		}
+	};
+
+	Player.prototype.checkCollisionWithObstacles = function() {
+		if (this.pos.x < this.game.obstacle.pos.x || this.pos.y < this.game.obstacle.y)
+		{
 			return this.game.gameover();
 		}
 	};
