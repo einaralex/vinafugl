@@ -58,9 +58,9 @@
 
 .Player-eyes {
 	position: absolute;
-	top: 5%;
+	top: 15%;
 	left: 75%;
 	width: 0.5em;
-	height: 1em;
+	height: 0.5em;
 	background: blue;
 }
