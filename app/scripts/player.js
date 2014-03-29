@@ -46,12 +46,12 @@ window.Player = (function() {
 		}
 
 		if (Controls.keys.space) {
-			this.pos.x += delta * SPEED;
+			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
 		}
 
 		if (Controls.freeFalling) {
-			this.pos.x += delta * FALLSPEED;
+			//this.pos.x += delta * FALLSPEED;
 			this.pos.y += delta * FALLSPEED;
 		}
 

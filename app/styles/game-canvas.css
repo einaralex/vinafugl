@@ -1,3 +1,25 @@
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-moz-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-webkit-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-ms-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-o-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+
+
 .GameCanvas {
     font-size: 10px;
     position: absolute;
@@ -8,5 +30,20 @@
     margin-left: -51.2em;
     margin-top: -28.8em;
     overflow: hidden;
-    background: red;
+    background-image: url(images/background.png);
+
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+
+    animation: animatedBackground 5s linear infinite;
+    -moz-animation: animatedBackground 5s linear infinite;
+    -webkit-animation: animatedBackground 5s linear infinite;
+    -ms-animation: animatedBackground 5s linear infinite;
+    -o-animation: animatedBackground 5s linear infinite;
+
+}
+
+/** Tilraun til ad stoppa bakgrunn, kann ekki ad kalla a thetta */
+.GameCanvas.not-moving {
+    -webkit-animation-play-state: paused;
 }
