@@ -9,14 +9,13 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
-		console.log("Jóakim aðalönd");
+		console.log('Jóakim aðalönd');
 		console.log(this.el);
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.isPlaying = false;
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
-	}; 
-
+	};
 
 	/**
 	 * Runs every frame. Calculates a delta and allows each game
@@ -79,7 +78,7 @@ window.Game = (function() {
 
 	Game.prototype.foo = function () {
 		Game.prototype.mytst = 1337;
-	}
+	};
 
 	/**
 	 * Some shared constants.

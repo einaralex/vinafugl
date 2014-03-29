@@ -13,14 +13,14 @@
 
 @keyframes slidein 
 {
-	0%   { -webkit-transform: top:0px;}
-	75%  { -webkit-transform: top:20px;}
+	0%   { -webkit-transform: top:0px; }
+	75%  { -webkit-transform: top:20px; }
 }
-
-@-webkit-keyframes slidein /* Safari and Chrome */
+/* Chrome and safari */
+@-webkit-keyframes slidein 
 {
-	0%   {top:0px;}
-	75%  {top:20px}
+	0% {top: 0px; }
+	75% {top: 20px; }
 }
 
 .Player-wings {

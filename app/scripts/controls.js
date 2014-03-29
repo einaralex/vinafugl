@@ -32,7 +32,7 @@ window.Controls = (function() {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
-            console.log("Did jump?");
+            console.log('Did jump?');
             console.log(this._didJump);
         }
 
@@ -51,7 +51,7 @@ window.Controls = (function() {
             if (this._didJump)
             {
                 this.freeFalling = true;
-                console.log("Now free falling.");
+                console.log('Now free falling.');
             }
 
             console.log(keyName);
@@ -76,7 +76,7 @@ window.Controls = (function() {
 
     Controls.prototype.setNotFreeFalling = function() {
         
-    }
+    };
     
     // Export singleton.
     return new Controls();

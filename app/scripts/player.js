@@ -14,13 +14,13 @@ window.Player = (function() {
 
 	var Player = function(el, game) {
 		this.el = el;
-		console.log("Party");
+		console.log('Party');
 		console.log(this.el);
 		this.game = game;
-		console.log("Party2");
+		console.log('Party2');
 		console.log(this.game);
 		this.pos = { x: 0, y: 0 };
-		console.log("Party3");
+		console.log('Party3');
 		console.log(this.pos);
 	};
 

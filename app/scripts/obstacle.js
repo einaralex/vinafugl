@@ -1,4 +1,5 @@
 window.Obstacle = (function() {
+	'use strict';
 
 	var INITIAL_POSITION_X = 60;
 	var INITIAL_POSITION_Y = 25;
