@@ -22,3 +22,24 @@
 	0%   {top:0px;}
 	75%  {top:20px}
 }
+
+.Player-wings {
+  position: absolute;
+  right: 30%;
+  top: 10%;
+  height: 2em;
+  width: 2em;
+  
+  background: yellow;
+  transform-origin: top center;
+  animation: 1s flap alternate infinite;
+}
+
+@-webkit-keyframes flap {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
