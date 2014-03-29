@@ -24,19 +24,43 @@
 }
 
 .Player-wings {
-  position: absolute;
-  right: 30%;
-  top: 10%;
-  height: 2em;
-  width: 2em;
+	position: absolute;
+	left: 10%;
+	top: 30%;
   
-  background: yellow;
-  transform-origin: top center;
-  animation: 0.4s flap alternate infinite;
-  -webkit-animation:flap 1s infinite;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid #f00;
+
+	transform-origin: top left;
+	animation: 0.4s flap alternate infinite;
+	-webkit-animation:flap 1s infinite;
 }
 
 @-webkit-keyframes flap {
  	0% { -webkit-transform: rotateX(0deg) ;}
   50% { -webkit-transform: rotateX(65deg) ;}
+}
+
+.Player-beak {
+	position: absolute;
+	right: -19%;
+	top: 20%;
+
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid orange;
+}
+
+.Player-eyes {
+	position: absolute;
+	top: 5%;
+	left: 75%;
+	width: 0.5em;
+	height: 1em;
+	background: blue;
 }
