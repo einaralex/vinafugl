@@ -1,0 +1,15 @@
+
+.platform {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  background: #ba4a55;
+  
+}
+
+.world {
+  position: absolute;
+  width: 5000px;
+  height: 1000px;
+}

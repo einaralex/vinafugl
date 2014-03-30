@@ -1,10 +1,9 @@
 .Scoreboard {
 	position: absolute;
-	left: 50%;
+	left: 6.2%;
 	top: 10em;
 	height: 30em;
 	width: 40em;
-	margin-left: -20em;
 	box-sizing: border-box;
 	background: purple;
 	text-align: center;

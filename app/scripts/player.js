@@ -13,29 +13,13 @@ window.Player = (function() {
 	var INITIAL_POSITION_Y = 25;
 
 	var Player = function(el, game) {
+
 		this.el = el;
-		console.log(this.el);
-
-		this.game = game;
-		console.log(this.game);
-
-		this.pos = { x: 0, y: 0 };
-
-		console.log('Party');
-		console.log(this.el);
+		console.log(el);
 
 		this.game = game;
 
-		console.log('Party2');
-
-		console.log(this.game);
-
-
 		this.pos = { x: 0, y: 0 };
-		console.log('Party3');
-
-
-		console.log(this.pos);
 	};
 
 	/**
@@ -47,6 +31,8 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+
+
 		if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
 		}
@@ -82,11 +68,22 @@ window.Player = (function() {
 		}
 	};
 
-	Player.prototype.checkCollisionWithObstacles = function() {
-		if (this.pos.x < this.game.obstacle.pos.x || this.pos.y < this.game.obstacle.y)
-		{
-			return this.game.gameover();
-		}
+	Player.prototype.checkPlatforms = function(oldY) {
+		
+		var that = this;
+
+		this.game.forEachPlatform(function(p) {
+			// Are we crossing Y.
+			if (p.rect.y >= oldY && p.rect.y < that.pos.y) {
+
+			// Are inside X bounds.
+				if (that.pos.x + PLAYER_HALF_WIDTH >= p.rect.x && that.pos.x - PLAYER_HALF_WIDTH <= p.rect.right) {
+				// COLLISION. Let's stop gravity.
+				that.pos.y = p.rect.y;
+				that.vel.y = 0;
+				}
+			}
+		});
 	};
 
 	return Player;

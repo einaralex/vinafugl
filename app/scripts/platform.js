@@ -1,5 +1,6 @@
 window.Platform = (function(){
     'use strict';
+    
     var Platform = function (rect){
         this.rect = rect;
         this.rect.right = rect.x + rect.width;

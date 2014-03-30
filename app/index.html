@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="styles/game-canvas.css">
         <link rel="stylesheet" href="styles/player.css">
         <link rel="stylesheet" href="styles/scoreboard.css">
+        <link rel="stylesheet" href="styles/platform.css">
         <!--<link rel="stylesheet/less" type="text/css" href="styles.less" />-->
         <!-- endbuild -->
     </head>
@@ -28,7 +29,32 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+
         <div class="GameCanvas">
+            <div class="world">
+                <div class="background"></div>
+                <div class="platforms"></div>
+                <div class="entities"></div>
+
+                <div class="Player">
+                    <div class="Player-eyes"></div>
+                    <div class="Player-beak"></div>
+                    <div class="Player-wings"></div>
+                </div>
+
+                <div class="Scoreboard">
+                    <button class="Scoreboard-restart">
+                        <span class="Scoreboard-restartText">Restart</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!--<div class="GameCanvas">
             
             <div class="Player">
                 <div class="Player-eyes"></div>
@@ -42,7 +68,8 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
-        </div>
+        </div> -->
+
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

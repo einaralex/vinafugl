@@ -6,7 +6,8 @@ $(function() {
     'use strict';
 
     var game = new window.Game($('.GameCanvas'));
-    console.log('elsk');
+    console.log('Starting game:');
     console.log(game);
     game.start();
+
 });
