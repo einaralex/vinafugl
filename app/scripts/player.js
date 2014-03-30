@@ -15,11 +15,16 @@ window.Player = (function() {
 	var Player = function(el, game) {
 
 		this.el = el;
-		console.log(el);
+		console.log("Ze el");
+		console.log(this.el);
 
 		this.game = game;
 
-		this.pos = { x: 0, y: 0 };
+		console.log("Ze game");
+
+		this.pos = { x: 0, x2:0, y: 0, y2: 0 };
+
+		
 	};
 
 	/**
@@ -28,10 +33,14 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		console.log("Pulsuvagn");
+		console.log(this.game.entities);
+
 	};
 
 	Player.prototype.onFrame = function(delta) {
-
+		//console.log("delta");
+		//console.log(delta);
 
 		if (Controls.keys.right) {
 			this.pos.x += delta * SPEED;
@@ -57,8 +66,10 @@ window.Player = (function() {
 		}
 
 		this.checkCollisionWithBounds();
+		this.checkPlatforms();
 
 		// Update UI
+		//console.log(this.el);
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
@@ -68,9 +79,17 @@ window.Player = (function() {
 		}
 	};
 
-	Player.prototype.checkPlatforms = function(oldY) {
+	Player.prototype.checkPlatforms = function(obstacle) {
+
+		//if (this.pos.x < this.game.entities)
+
+		//if (this.pos.x);
+
+		//console.log(this.game);
 		
-		var that = this;
+		//console.log("Kjuklingur");
+		/*var that = this;
+		//console.log(that);
 
 		this.game.forEachPlatform(function(p) {
 			// Are we crossing Y.
@@ -83,7 +102,7 @@ window.Player = (function() {
 				that.vel.y = 0;
 				}
 			}
-		});
+		});*/
 	};
 
 	return Player;

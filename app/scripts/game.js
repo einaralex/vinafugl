@@ -13,7 +13,8 @@ window.Game = (function() {
 		console.log(this.el);
 
 		this.player = new window.Player(this.el.find('.Player'), this);
-		
+		console.log('Sætabrauðsdrengur');
+		console.log(this.player);
 		this.entities = [];
 		this.platformsEl = el.find('.platforms');
 		this.entitiesEl = el.find('.entities');
@@ -22,47 +23,64 @@ window.Game = (function() {
 		this.onFrame = this.onFrame.bind(this);
 	};
 
+	Game.prototype.checkCollisionPlayerVSPlatform = function () {
+		//console.log("DUDUDUDUDUDDUDUUUUUUUUUUUDUDUUDDUDUUDUUuu!u!u!!!uDUDUUDUUUDuu1uu1u");
+		//console.log(this.platformsEl);
+		//console.log(this.player);
+		//return true;
 
-	/*Game.prototype.freezeGame = function() {
-		this.isPlaying = false;
-	};
+		// TODO: Reikna út hnitin á main bodyinu á fuglinum, svo ég geti gert x0 x1, y0 y1 og borið saman við hinn.
+		/*if(this.player.pos.x < this.entities.rect)
+		{
+			console.log("haha");
+		}*/
+		//console.log("what");
+		//console.log(this.entities);
+		//console.log(this.player.pos.x);
+		//console.log(this.platformsEl);
 
-	Game.prototype.unFreezeGame = function() {
-		if (!this.isPlaying) {
-			this.isPlaying = true;
-			// Restart the onFrame loop
-			this.lastFrame = +new Date() / 1000;
-			window.requestAnimationFrame(this.onFrame);
-		}
-	};
+
+
+/*
+if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y < 0 || this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+		return this.game.gameover();
+	}
 */
+	};
+
+
 	Game.prototype.createWorld = function () {
-		
+
+		//console.log("fyrir");
+	    console.log(this);
 
 	    this.addPlatform(new Platform({
-			x: 750,
+			x: 650,
 			y: 188,
 			width: 100,
-			height: 10
+			height: 40
 	    }));
+	    //console.log("eftir");
+	    console.log(this);
 
 	};
 
 	Game.prototype.addPlatform = function(platform) {
+
 		this.entities.push(platform);
+		//console.log("BOOM headshot");
+		console.log(this.entities);
 		this.platformsEl.append(platform.el);
 	};
 
-	/*Game.prototype.addEnemy = function(enemy) {
-	    this.entities.push(enemy);
-	    this.entitiesEl.append(enemy.el);
-	};
-*/
-
 	Game.prototype.onFrame = function() {
 		// Check if the game loop should stop.
+
 		if (!this.isPlaying) {
 			return;
+		}
+		if (this.checkCollisionPlayerVSPlatform()){
+		//	console.log("YOU FUCKING LOST");
 		}
 
 		// Calculate how long since last frame in seconds.
@@ -81,32 +99,33 @@ window.Game = (function() {
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-		//this.reset();
 
-		this.entities.forEach(function(e) { e.el.remove(); });
-	    this.entities = [];
+		this.reset();
+		//this.entities.forEach(function(e) { e.el.remove(); });
+	    //this.entities = [];
+
 	    console.log(this.entities);
 
 	    // Set the stage.
 	    this.createWorld();
+	    console.log("World created");
 	    this.player.reset();
 
 
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
+
+		console.log("Hlölli");
+		console.log(this.entities);
+		console.log(this.player.pos);
+
 	};
 
-	/**
-	 * Resets the state of the game so a new game can be started.
-	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
 	};
 
-	/**
-	 * Signals that the game is over.
-	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 
@@ -124,10 +143,8 @@ window.Game = (function() {
 
 
 	Game.prototype.forEachPlatform = function(handler) {
-		console.log('Mundu mig');
-		console.log(this.entities);
-		console.log(handler);
-		/*for (var i = 0; e = this.entities[i]; i++) {
+		
+		/*for (var i = 0; e = this. [i]; i++) {
 			if (e instanceof Platform) {
 				handler(e);
 			}
@@ -135,9 +152,7 @@ window.Game = (function() {
 	};
 
 	Game.prototype.forEachEnemy = function(handler) {
-		console.log('Mundu mig Lika');
-		console.log(handler);
-
+		
 		/*for (var i = 0, e; e = this.entities[i]; i++) {
 			if (e instanceof Enemy) {
 				handler(e);
