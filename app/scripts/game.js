@@ -36,11 +36,9 @@ window.Game = (function() {
 
 	};
 
-
 	Game.prototype.createWorld = function () {
-
 		//console.log("fyrir");
-	    console.log(this);
+	    //console.log(this);
 
 	    this.addPlatform(new Platform({
 			x: 500,
@@ -48,8 +46,9 @@ window.Game = (function() {
 			width: 100,
 			height: 100
 	    }));
-	   // this.checkCollisionPlayerVSPlatform();
 
+	    //console.log("eftir");
+	    console.log(this);
 	};
 
 	Game.prototype.addPlatform = function(platform) {

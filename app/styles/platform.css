@@ -1,5 +1,5 @@
-
 .platform {
+
   position: absolute;
   right: 0;
   left: 0;
@@ -7,4 +7,26 @@
   
   background: #ba4a55;
   transform-origin: bottom left;
+
+  	position: absolute;
+  	left: 0;
+  	top: 0;
+  	height: 15px;
+  	background: #ba4a55;
+  	transform-origin: top left;
+  	animation: pipes 50s infinite;
+	-webkit-animation: pipes 50s infinite;
+}
+
+@keyframes pipes
+{
+	0%   {background:green; left:1000px; top:0px;}
+	100% {background:green; left:-150px; top:0px;}
+}
+
+@-webkit-keyframes pipes 
+{
+	0%   {background:green; left:1000px; top:0px;}
+	100% {background:green; left:-150px; top:0px;}
+
 }
