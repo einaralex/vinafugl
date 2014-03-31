@@ -1,9 +1,10 @@
 
 .platform {
   position: absolute;
+  right: 0;
   left: 0;
   top: 0;
-  height: 15px;
+  
   background: #ba4a55;
-  transform-origin: top left;
+  transform-origin: bottom left;
 }

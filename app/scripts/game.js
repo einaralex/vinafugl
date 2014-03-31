@@ -20,32 +20,20 @@ window.Game = (function() {
 		this.entitiesEl = el.find('.entities');
 		this.worldEl = el.find('.world');
 		this.isPlaying = false;
+		this.platforms = [];
 		this.onFrame = this.onFrame.bind(this);
+
 	};
 
-	Game.prototype.checkCollisionPlayerVSPlatform = function () {
-		//console.log("DUDUDUDUDUDDUDUUUUUUUUUUUDUDUUDDUDUUDUUuu!u!u!!!uDUDUUDUUUDuu1uu1u");
-		//console.log(this.platformsEl);
-		//console.log(this.player);
-		//return true;
+	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
 
-		// TODO: Reikna út hnitin á main bodyinu á fuglinum, svo ég geti gert x0 x1, y0 y1 og borið saman við hinn.
-		/*if(this.player.pos.x < this.entities.rect)
+
+		if (playerpos.x + this.player.width >= this.platforms[0].rect.x && playerpos.y + this.player.height >= this.platforms[0].rect.y &&
+			playerpos.x <= this.platforms[0].rect.x + this.platforms[0].rect.width && playerpos.y <= this.platforms[0].rect.y + this.platforms[0].rect.height)
 		{
-			console.log("haha");
-		}*/
-		//console.log("what");
-		//console.log(this.entities);
-		//console.log(this.player.pos.x);
-		//console.log(this.platformsEl);
+			console.log("kaka");
+		}
 
-
-
-/*
-if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y < 0 || this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
-		return this.game.gameover();
-	}
-*/
 	};
 
 
@@ -55,22 +43,25 @@ if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y <
 	    console.log(this);
 
 	    this.addPlatform(new Platform({
-			x: 650,
-			y: 188,
+			x: 500,
+			y: 250,
 			width: 100,
-			height: 40
+			height: 100
 	    }));
-	    //console.log("eftir");
-	    console.log(this);
+	   // this.checkCollisionPlayerVSPlatform();
 
 	};
 
 	Game.prototype.addPlatform = function(platform) {
 
+		
 		this.entities.push(platform);
-		//console.log("BOOM headshot");
-		console.log(this.entities);
+		
 		this.platformsEl.append(platform.el);
+
+		this.platforms.push(platform);
+
+		
 	};
 
 	Game.prototype.onFrame = function() {
@@ -79,9 +70,9 @@ if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y <
 		if (!this.isPlaying) {
 			return;
 		}
-		if (this.checkCollisionPlayerVSPlatform()){
+		//if (this.checkCollisionPlayerVSPlatform()){
 		//	console.log("YOU FUCKING LOST");
-		}
+		//}
 
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
@@ -93,6 +84,8 @@ if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y <
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
+		//console.log(this.player.pos);
+		//console.log(this.platforms[0].rect.x);
 	};
 
 	/**
@@ -115,10 +108,6 @@ if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y <
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-
-		console.log("Hlölli");
-		console.log(this.entities);
-		console.log(this.player.pos);
 
 	};
 

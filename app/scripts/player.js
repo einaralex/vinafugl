@@ -5,12 +5,14 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 180; // * 10 pixels per second
-	var FALLSPEED = 5;
+	var SPEED = 300; // * 10 pixels per second
+	var FALLSPEED = 20;
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
-	var INITIAL_POSITION_Y = 25;
+	var INITIAL_POSITION_Y = 200;
+	// x2 = 70 + 5 = 70 - 75
+	// y2 = 20 + 5 = 20 - 25
 
 	var Player = function(el, game) {
 
@@ -21,10 +23,15 @@ window.Player = (function() {
 		this.game = game;
 
 		console.log("Ze game");
+		console.log(this.game);
 
-		this.pos = { x: 0, x2:0, y: 0, y2: 0 };
+		this.pos = { x: 0, y: 0 };
+		this.width = this.el[0].clientWidth;
+		console.log("læða");
+		console.log(this.width);
+		this.height = this.el[0].clientHeight;
+		console.log(this.height);
 
-		
 	};
 
 	/**
@@ -65,12 +72,15 @@ window.Player = (function() {
 			this.pos.y += delta * FALLSPEED * 9.81;
 		}
 
-		this.checkCollisionWithBounds();
+		//this.game.checkCollisionPlayerVSPlatform();
+		//this.checkCollisionWithBounds();
+
 		this.checkPlatforms();
 
 		// Update UI
 		//console.log(this.el);
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
+		this.el.css('transform', 'translate(' + this.pos.x + 'px, ' + this.pos.y + 'px)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
@@ -79,30 +89,10 @@ window.Player = (function() {
 		}
 	};
 
-	Player.prototype.checkPlatforms = function(obstacle) {
+	Player.prototype.checkPlatforms = function() {
 
-		//if (this.pos.x < this.game.entities)
-
-		//if (this.pos.x);
-
-		//console.log(this.game);
-		
-		//console.log("Kjuklingur");
-		/*var that = this;
-		//console.log(that);
-
-		this.game.forEachPlatform(function(p) {
-			// Are we crossing Y.
-			if (p.rect.y >= oldY && p.rect.y < that.pos.y) {
-
-			// Are inside X bounds.
-				if (that.pos.x + PLAYER_HALF_WIDTH >= p.rect.x && that.pos.x - PLAYER_HALF_WIDTH <= p.rect.right) {
-				// COLLISION. Let's stop gravity.
-				that.pos.y = p.rect.y;
-				that.vel.y = 0;
-				}
-			}
-		});*/
+		//console.log(this.pos);
+		this.game.checkCollisionPlayerVSPlatform(this.pos);
 	};
 
 	return Player;

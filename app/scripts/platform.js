@@ -7,7 +7,7 @@ window.Platform = (function(){
 
         this.el = $('<div class="platform">');
         this.el.css({
-            left: rect.x,
+            left: rect.x, 
             top: rect.y,
             width: rect.width,
             height: rect.height
