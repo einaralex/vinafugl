@@ -2,6 +2,8 @@
 window.Game = (function() {
 	'use strict';
 
+	var VIEWPORT_PADDING = 200;
+
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -9,7 +11,7 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
-		
+		console.log("Sjadu mig");
 		console.log(this.el);
 
 		this.player = new window.Player(this.el.find('.Player'), this);
@@ -19,21 +21,31 @@ window.Game = (function() {
 		this.platformsEl = el.find('.platforms');
 		this.entitiesEl = el.find('.entities');
 		this.worldEl = el.find('.world');
+		this.Scoreboard = el.find('.Scoreboard');
 		this.isPlaying = false;
 		this.platforms = [];
 		this.onFrame = this.onFrame.bind(this);
+		console.log("pizzaogpasta");
+		console.log(this.worldEl);
 
 	};
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
 
-
-		if (playerpos.x + this.player.width >= this.platforms[0].rect.x && playerpos.y + this.player.height >= this.platforms[0].rect.y &&
-			playerpos.x <= this.platforms[0].rect.x + this.platforms[0].rect.width && playerpos.y <= this.platforms[0].rect.y + this.platforms[0].rect.height)
+		for (var i=0; i<this.platforms.length; i++)
 		{
-			console.log("kaka");
-		}
+			if (playerpos.x + this.player.width >= this.platforms[i].rect.x && playerpos.y + this.player.height >= this.platforms[i].rect.y &&
+				playerpos.x <= this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.y <= this.platforms[i].rect.y + this.platforms[i].rect.height)
+			{
+				console.log("kaka");
+				return true;
+			}
+			/*else
+			{
+				return false;
+			}*/
 
+		}
 	};
 
 	Game.prototype.createWorld = function () {
@@ -41,12 +53,32 @@ window.Game = (function() {
 	    //console.log(this);
 
 	    this.addPlatform(new Platform({
-			x: 500,
-			y: 250,
+			x: 700,
+			y: 150,
+			width: 400,
+			height: 100
+	    }));
+
+	    this.addPlatform(new Platform({
+			x: 700,
+			y: 400,
 			width: 100,
 			height: 100
 	    }));
 
+	    this.addPlatform(new Platform({
+			x: 1000,
+			y: 400,
+			width: 100,
+			height: 150
+	    }));
+
+	    this.addPlatform(new Platform({
+			x: 1400,
+			y: 50,
+			width: 10,
+			height: 100
+	    }));
 	    //console.log("eftir");
 	    console.log(this);
 	};
@@ -55,9 +87,7 @@ window.Game = (function() {
 
 		
 		this.entities.push(platform);
-		
 		this.platformsEl.append(platform.el);
-
 		this.platforms.push(platform);
 
 		
@@ -80,11 +110,40 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
+		this.updateViewport();
+		//this.platforms[0].onFrame(1);
+
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
 		//console.log(this.player.pos);
 		//console.log(this.platforms[0].rect.x);
+	};
+
+	Game.prototype.updateViewport = function() {
+
+		var minX = this.viewport.x + VIEWPORT_PADDING;
+    	var maxX = this.viewport.x + this.viewport.width + VIEWPORT_PADDING;
+
+    	var playerX = this.player.pos.x;
+
+	    // Update the viewport if needed.
+	    if (playerX < minX) {
+	      this.viewport.x = playerX - VIEWPORT_PADDING;
+	    } else if (playerX > maxX) {
+	      this.viewport.x = playerX + this.viewport.width - VIEWPORT_PADDING;
+	    }
+
+
+	    this.worldEl.css({
+	      left: -this.viewport.x,
+	      top: -this.viewport.y
+	    });
+
+	    this.Scoreboard.css({
+	    	left: +this.viewport.x + 300,
+	      	top: +this.viewport.y + 100
+	    });
 	};
 
 	/**
@@ -102,11 +161,13 @@ window.Game = (function() {
 	    this.createWorld();
 	    console.log("World created");
 	    this.player.reset();
-
+	    this.viewport = {x: 0, y: 0, width: 0, height: 0};
 
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
+
+
 
 	};
 
@@ -155,6 +216,12 @@ window.Game = (function() {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
+
+	/*Game.prototype.WORLD_WIDTH = this.el[0].clientWidth;
+	Game.prototype.WORLD_HEIGHT = this.el[0].clientHeight;
+	console.log("pulsa");
+	console.log(Game.prototype.WORLD_WIDTH);
+	console.log(Game.prototype.WORLD_HEIGHT)*/
 
 	return Game;
 })();

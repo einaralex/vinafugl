@@ -14,19 +14,18 @@
   	height: 15px;
   	background: #ba4a55;
   	transform-origin: top left;
-  	animation: pipes 50s infinite;
-	-webkit-animation: pipes 50s infinite;
+  	//animation: pipes 2s infinite;
+	//-webkit-animation: pipes 2s infinite;
 }
 
-@keyframes pipes
-{
-	0%   {background:green; left:1000px; top:0px;}
-	100% {background:green; left:-150px; top:0px;}
-}
+//@keyframes pipes
+//{
+//		0% { -webkit-transform: translateX(200%) ;}
+// 		100% { -webkit-transform: translateX(-500%) ;}
+//}
 
-@-webkit-keyframes pipes 
-{
-	0%   {background:green; left:1000px; top:0px;}
-	100% {background:green; left:-150px; top:0px;}
-
-}
+//@-webkit-keyframes pipes 
+//{
+//	0% { -webkit-transform: translateX(200%) ;}
+// 		100% { -webkit-transform: translateX(-500%) ;}
+//}

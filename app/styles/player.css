@@ -1,11 +1,10 @@
 .Player {
 	position: absolute;
 	top: 0;
-	right: 10;
 	width: 5em;
 	height: 5em;
 	background: black;
-transform-origin: bottom left;
+	transform-origin: bottom left;
 	//animation:slidein 1s infinite;
 //	-webkit-animation:slidein 1s infinite;
 

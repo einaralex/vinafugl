@@ -6,11 +6,11 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 300; // * 10 pixels per second
-	var FALLSPEED = 20;
+	var FALLSPEED = 200;
 	var WIDTH = 5;
 	var HEIGHT = 5;
-	var INITIAL_POSITION_X = 30;
-	var INITIAL_POSITION_Y = 200;
+	var INITIAL_POSITION_X = 0;
+	var INITIAL_POSITION_Y = 250;
 	// x2 = 70 + 5 = 70 - 75
 	// y2 = 20 + 5 = 20 - 25
 
@@ -65,11 +65,13 @@ window.Player = (function() {
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
+			//this.pos.x += delta * SPEED;
 		}
 
 		if (Controls.freeFalling) {
 			//this.pos.x += delta * FALLSPEED;
-			this.pos.y += delta * FALLSPEED * 9.81;
+			this.pos.y += delta * FALLSPEED;
+			this.pos.x += delta * SPEED;
 		}
 
 		//this.game.checkCollisionPlayerVSPlatform();
@@ -92,7 +94,11 @@ window.Player = (function() {
 	Player.prototype.checkPlatforms = function() {
 
 		//console.log(this.pos);
-		this.game.checkCollisionPlayerVSPlatform(this.pos);
+		if (this.game.checkCollisionPlayerVSPlatform(this.pos))
+		{
+			console.log("GAME LOST");
+			return this.game.gameover();
+		}
 	};
 
 	return Player;
