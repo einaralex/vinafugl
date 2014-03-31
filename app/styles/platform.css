@@ -14,18 +14,4 @@
   	height: 15px;
   	background: #ba4a55;
   	transform-origin: top left;
-  	//animation: pipes 2s infinite;
-	//-webkit-animation: pipes 2s infinite;
 }
-
-//@keyframes pipes
-//{
-//		0% { -webkit-transform: translateX(200%) ;}
-// 		100% { -webkit-transform: translateX(-500%) ;}
-//}
-
-//@-webkit-keyframes pipes 
-//{
-//	0% { -webkit-transform: translateX(200%) ;}
-// 		100% { -webkit-transform: translateX(-500%) ;}
-//}

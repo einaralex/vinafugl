@@ -64,7 +64,7 @@ window.Player = (function() {
 
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
-			this.pos.y -= delta * SPEED;
+			this.pos.y -= delta * SPEED + 10;
 			//this.pos.x += delta * SPEED;
 		}
 

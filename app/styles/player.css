@@ -5,8 +5,18 @@
 	height: 5em;
 	background: black;
 	transform-origin: bottom left;
+
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-right-radius: 20px;
+
+	-moz-border-radius-topright: 15px;
+	border-top-right-radius: 15px;
+
+	-moz-border-radius-topleft: 50px;
+	border-top-left-radius: 25px;
+
 	//animation:slidein 1s infinite;
-//	-webkit-animation:slidein 1s infinite;
+	//	-webkit-animation:slidein 1s infinite;
 
 }
 
@@ -33,6 +43,15 @@
 	border-right: 20px solid transparent;
 	border-top: 20px solid green;
 
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-right-radius: 20px;
+
+	-moz-border-radius-topright: 15px;
+	border-top-right-radius: 15px;
+
+	-moz-border-radius-topleft: 50px;
+	border-top-left-radius: 25px;
+
 	transform-origin: top left;
 	animation: 0.4s flap alternate infinite;
 	-webkit-animation:flap 1s infinite;
@@ -53,14 +72,47 @@
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-left: 10px solid orange;
+
 }
 
 .Player-eyes {
 	position: absolute;
 	top: 15%;
-	left: 75%;
-	width: 0.5em;
-	height: 0.5em;
-	background: blue;
+	left: 65%;
+	width: 0.9em;
+	height: 0.9em;
+	background: white;
+
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-right-radius: 20px;
+
+	-moz-border-radius-topright: 20px;
+	border-top-right-radius: 20px;
+
+	-moz-border-radius-topleft: 20px;
+	border-top-left-radius: 20px;
+
+	-moz-border-radius-bottomleft: 20px;
+	border-bottom-left-radius: 20px;
 }
 
+.Player-eye-stones {
+	position: absolute;
+	background: black;
+	top: 15%;
+	left: 50%;
+	width: 0.5em;
+	height: 0.5em;
+
+	-moz-border-radius-bottomright: 20px;
+	border-bottom-right-radius: 20px;
+
+	-moz-border-radius-topright: 20px;
+	border-top-right-radius: 20px;
+
+	-moz-border-radius-topleft: 20px;
+	border-top-left-radius: 20px;
+
+	-moz-border-radius-bottomleft: 20px;
+	border-bottom-left-radius: 20px;
+}
