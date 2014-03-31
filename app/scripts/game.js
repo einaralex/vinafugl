@@ -48,21 +48,18 @@ if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y <
 */
 	};
 
-
 	Game.prototype.createWorld = function () {
-
 		//console.log("fyrir");
 	    console.log(this);
 
 	    this.addPlatform(new Platform({
-			x: 650,
-			y: 188,
+			x: 0,
+			y: 0,
 			width: 100,
-			height: 40
+			height: 200
 	    }));
 	    //console.log("eftir");
 	    console.log(this);
-
 	};
 
 	Game.prototype.addPlatform = function(platform) {
