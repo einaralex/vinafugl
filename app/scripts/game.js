@@ -22,6 +22,7 @@ window.Game = (function() {
 		this.entitiesEl = el.find('.entities');
 		this.worldEl = el.find('.world');
 		this.Scoreboard = el.find('.Scoreboard');
+		this.ground = el.find('.ground');
 		this.isPlaying = false;
 		this.platforms = [];
 		this.onFrame = this.onFrame.bind(this);
@@ -80,7 +81,6 @@ window.Game = (function() {
 
 	Game.prototype.addPlatform = function(platform) {
 
-		
 		this.entities.push(platform);
 		this.platformsEl.append(platform.el);
 		this.platforms.push(platform);
@@ -129,6 +129,11 @@ window.Game = (function() {
 	    this.Scoreboard.css({
 	    	left: +this.viewport.x + 300,
 	      	top: +this.viewport.y + 100
+	    });
+
+	    this.ground.css({
+	    	left: + this.viewport.x + 511,
+	    	top: + this.viewport.y + 500
 	    });
 	};
 

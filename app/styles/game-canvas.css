@@ -19,6 +19,26 @@
     to { background-position: 65% 0; }
 }
 
+@keyframes animateGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-moz-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-webkit-keyframes animatedGround {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+}
+@-ms-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-o-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
 
 .GameCanvas {
     font-size: 10px;
@@ -40,11 +60,28 @@
     -webkit-animation: animatedBackground 5s linear infinite;
     -ms-animation: animatedBackground 5s linear infinite;
     -o-animation: animatedBackground 5s linear infinite;
-
 }
 
 .world {
-  position: absolute;
-  width: 102.4em;
+    position: absolute;
+    width: 102.4em;
     height: 57.6em;
+}
+
+.ground {
+    position: absolute;
+    width: 102.4em;
+    height: 57.6em;
+    margin-left: -51.2em;
+    overflow: hidden;
+    background-image: url(images/ground.png);
+
+    background-position: center bottom;
+    background-repeat: repeat-x;
+
+    animation: animatedGround 3s linear infinite;
+    -moz-animation: animatedGround 3s linear infinite;
+    -webkit-animation: animatedGround 3s linear infinite;
+    -ms-animation: animatedGround 3s linear infinite;
+    -o-animation: animatedGround 3s linear infinite;
 }
