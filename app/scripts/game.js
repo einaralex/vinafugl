@@ -52,35 +52,26 @@ window.Game = (function() {
 		//console.log("fyrir");
 	    //console.log(this);
 
-	    this.addPlatform(new Platform({
-			x: 700,
-			y: 150,
-			width: 400,
-			height: 100
-	    }));
 
-	    this.addPlatform(new Platform({
-			x: 700,
-			y: 400,
-			width: 100,
-			height: 100
-	    }));
 
-	    this.addPlatform(new Platform({
-			x: 1000,
-			y: 400,
-			width: 100,
-			height: 150
-	    }));
+	    for (var i=1, bil=0; i<=100; i++, bil = bil + 200)
+	    {
+	    	this.addPlatform(new Platform({
+				x: bil,
+				y: 0,
+				width: 80,
+				height: 200 + (200 * Math.random()*0.2 )
+	    	}));
 
-	    this.addPlatform(new Platform({
-			x: 1400,
-			y: 50,
-			width: 10,
-			height: 100
-	    }));
-	    //console.log("eftir");
-	    console.log(this);
+
+
+	    	this.addPlatform(new Platform({
+				x: bil,
+				y: 400  + (400*Math.random()*0.2),
+				width: 80 ,
+				height: 200
+	    	}));
+	    }
 	};
 
 	Game.prototype.addPlatform = function(platform) {
