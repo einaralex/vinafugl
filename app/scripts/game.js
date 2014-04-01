@@ -55,7 +55,6 @@ window.Game = (function() {
 	    	}));
 
 
-
 	    	this.addPlatform(new Platform({
 				x: bil,
 				y: 400  + (400*Math.random()*0.2),

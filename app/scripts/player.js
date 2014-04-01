@@ -59,7 +59,7 @@ window.Player = (function() {
 		if (Controls.freeFalling) {
 			//this.pos.x += delta * FALLSPEED;
 			this.pos.y += delta * FALLSPEED;
-			this.pos.x += (delta * SPEED)/2;
+			this.pos.x += (delta * SPEED);
 		}
 
 		//this.game.checkCollisionPlayerVSPlatform();

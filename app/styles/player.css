@@ -15,21 +15,24 @@
 	-moz-border-radius-topleft: 50px;
 	border-top-left-radius: 25px;
 
-	//animation:slidein 1s infinite;
-	//	-webkit-animation:slidein 1s infinite;
+	animation:slidein 1s infinite;
+		-webkit-animation:slidein 1s infinite;
 
 }
 
 @keyframes slidein 
 {
 	0%   { -webkit-transform: top:0px; }
-	75%  { -webkit-transform: top:20px; }
+	50%  { -webkit-transform: top:300px; }
+	0%   { -webkit-transform: top:0px; }
 }
 /* Chrome and safari */
 @-webkit-keyframes slidein 
 {
 	0% {top: 0px; }
-	75% {top: 20px; }
+	50% {top: 50px; }
+	0%   { -webkit-transform: top:0px; }
+
 }
 
 .Player-wings {
