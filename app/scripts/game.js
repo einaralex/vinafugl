@@ -54,13 +54,13 @@ window.Game = (function() {
 
 
 
-	    for (var i=1, bil=0; i<=100; i++, bil = bil + 200)
+	    for (var i=1, bil=0; i<=100; i++, bil = bil + 400)
 	    {
 	    	this.addPlatform(new Platform({
 				x: bil,
 				y: 0,
-				width: 80,
-				height: 200 + (200 * Math.random()*0.2 )
+				width: 100 , //* (1 + Math.random()*0.3),
+				height: 200 + (200 * Math.random()*0.2)
 	    	}));
 
 
