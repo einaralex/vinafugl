@@ -42,7 +42,7 @@ window.Game = (function() {
 				return true;
 			}
 			else if (playerpos.x > this.platforms[i].rect.x + this.platforms[i].rect.width){
-				console.log("hnetusmuuuu");
+				//console.log("hnetusmuuuu");
 				//var won = "hasWon";
 				//return won;
 			}

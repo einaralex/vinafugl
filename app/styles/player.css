@@ -23,15 +23,15 @@
 @keyframes slidein 
 {
 	0%   { -webkit-transform: top:0px; }
-	50%  { -webkit-transform: top:300px; }
+	50%  { -webkit-transform: top:100px; }
 	0%   { -webkit-transform: top:0px; }
 }
 /* Chrome and safari */
 @-webkit-keyframes slidein 
 {
 	0% {top: 0px; }
-	50% {top: 50px; }
-	0%   { -webkit-transform: top:0px; }
+	25% {top: 10px; }
+	50%   { -webkit-transform: top:0px; }
 
 }
 
