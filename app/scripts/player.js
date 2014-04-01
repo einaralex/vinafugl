@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 300; // * 10 pixels per second
+	var SPEED = 500; // * 10 pixels per second
 	var FALLSPEED = 200;
 	var WIDTH = 5;
 	var HEIGHT = 5;
@@ -49,29 +49,17 @@ window.Player = (function() {
 		//console.log("delta");
 		//console.log(delta);
 
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
-		}
 
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
-			this.pos.y -= delta * SPEED;
+			this.pos.y -= delta * SPEED*1.5;
 			//this.pos.x += delta * SPEED;
 		}
 
 		if (Controls.freeFalling) {
 			//this.pos.x += delta * FALLSPEED;
 			this.pos.y += delta * FALLSPEED;
-			this.pos.x += delta * SPEED;
+			this.pos.x += (delta * SPEED)/2;
 		}
 
 		//this.game.checkCollisionPlayerVSPlatform();
