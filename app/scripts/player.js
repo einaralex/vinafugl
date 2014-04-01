@@ -9,7 +9,7 @@ window.Player = (function() {
 	var FALLSPEED = 200;
 	var WIDTH = 5;
 	var HEIGHT = 5;
-	var INITIAL_POSITION_X = 0;
+	var INITIAL_POSITION_X = -300;
 	var INITIAL_POSITION_Y = 250;
 	// x2 = 70 + 5 = 70 - 75
 	// y2 = 20 + 5 = 20 - 25

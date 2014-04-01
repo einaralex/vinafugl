@@ -40,21 +40,12 @@ window.Game = (function() {
 				console.log("kaka");
 				return true;
 			}
-			/*else
-			{
-				return false;
-			}*/
-
 		}
 	};
 
 	Game.prototype.createWorld = function () {
-		//console.log("fyrir");
-	    //console.log(this);
 
-
-
-	    for (var i=1, bil=0; i<=100; i++, bil = bil + 400)
+	    for (var i=1, bil=0; i<=50; i++, bil = bil + 400)
 	    {
 	    	this.addPlatform(new Platform({
 				x: bil,
@@ -80,7 +71,6 @@ window.Game = (function() {
 		this.entities.push(platform);
 		this.platformsEl.append(platform.el);
 		this.platforms.push(platform);
-
 		
 	};
 
@@ -90,9 +80,6 @@ window.Game = (function() {
 		if (!this.isPlaying) {
 			return;
 		}
-		//if (this.checkCollisionPlayerVSPlatform()){
-		//	console.log("YOU FUCKING LOST");
-		//}
 
 		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
@@ -102,13 +89,8 @@ window.Game = (function() {
 		// Update game entities.
 		this.player.onFrame(delta);
 		this.updateViewport();
-		//this.platforms[0].onFrame(1);
 
-
-		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
-		//console.log(this.player.pos);
-		//console.log(this.platforms[0].rect.x);
 	};
 
 	Game.prototype.updateViewport = function() {
@@ -143,9 +125,6 @@ window.Game = (function() {
 	Game.prototype.start = function() {
 
 		this.reset();
-		//this.entities.forEach(function(e) { e.el.remove(); });
-	    //this.entities = [];
-
 	    console.log(this.entities);
 
 	    // Set the stage.
@@ -157,8 +136,6 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-
-
 
 	};
 
@@ -180,27 +157,6 @@ window.Game = (function() {
 					that.start();
 				});
 	};
-
-
-	Game.prototype.forEachPlatform = function(handler) {
-		
-		/*for (var i = 0; e = this. [i]; i++) {
-			if (e instanceof Platform) {
-				handler(e);
-			}
-		}*/
-	};
-
-	Game.prototype.forEachEnemy = function(handler) {
-		
-		/*for (var i = 0, e; e = this.entities[i]; i++) {
-			if (e instanceof Enemy) {
-				handler(e);
-			}
-		}*/
-	};
-
-
 
 	/**
 	 * Some shared constants.
