@@ -5,8 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 300; // * 10 pixels per second
-	var FALLSPEED = 200;
+	var SPEED = 1000; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = -300;
@@ -17,31 +16,23 @@ window.Player = (function() {
 	var Player = function(el, game) {
 
 		this.el = el;
-		console.log("Ze el");
-		console.log(this.el);
-
 		this.game = game;
-
-		console.log("Ze game");
-		console.log(this.game);
-
 		this.pos = { x: 0, y: 0 };
 		this.width = this.el[0].clientWidth;
-		console.log("læða");
-		console.log(this.width);
 		this.height = this.el[0].clientHeight;
-		console.log(this.height);
-
+		this.points = 0;
 	};
 
-	/**
-	 * Resets the state of the player for a new game.
-	 */
+	Player.prototype.pointGained = function(){
+		this.points = this.points+1;
+	};
+
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		console.log("Pulsuvagn");
 		console.log(this.game.entities);
+		this.points = 0;
 
 	};
 
@@ -52,14 +43,14 @@ window.Player = (function() {
 
 		if (Controls.keys.space) {
 			//this.pos.x += delta * SPEED;
-			this.pos.y -= delta * SPEED*1.5;
+			this.pos.y -= delta * SPEED;
 			//this.pos.x += delta * SPEED;
 		}
 
 		if (Controls.freeFalling) {
 			//this.pos.x += delta * FALLSPEED;
-			this.pos.y += delta * FALLSPEED;
-			this.pos.x += (delta * SPEED);
+			this.pos.y += delta * SPEED/2;
+			this.pos.x += (delta * SPEED/2);
 		}
 
 		//this.game.checkCollisionPlayerVSPlatform();
@@ -77,6 +68,10 @@ window.Player = (function() {
 		if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y < 0 || this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
 			return this.game.gameover();
 		}
+	};
+
+	Player.prototype.checkCollisionWithGround = function() {
+
 	};
 
 	Player.prototype.checkPlatforms = function() {

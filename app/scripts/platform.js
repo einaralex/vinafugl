@@ -15,6 +15,7 @@ window.Platform = (function(){
             height: rect.height
         });
         this.pos = { x: 0, y: 0 };
+        this.passed = false;
     };
 
     /*Platform.prototype.onFrame = function(delta) {
