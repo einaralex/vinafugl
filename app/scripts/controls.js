@@ -33,6 +33,13 @@ window.Controls = (function() {
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
 
+            //if(muteAudio === false) {     // Á eftir að klára að laga!
+                if(this._didJump === true) {
+                    console.log("jumped");
+                    var jumpAudio = document.getElementById("jumpingAudio");
+                    jumpAudio.play();
+                }
+            //}
             console.log(this._didJump);
         }
 

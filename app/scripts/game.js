@@ -3,6 +3,7 @@ window.Game = (function() {
 	'use strict';
 
 	var VIEWPORT_PADDING = 200;
+	var muteAudio = false;
 
 	/**
 	 * Main game class.
@@ -161,10 +162,14 @@ window.Game = (function() {
 		this.player.reset();
 	};
 
-
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-
+		if(muteAudio === false) {	// A eftir að klara
+			if(this.isPlaying === false) {
+			    var cheerAudio = document.getElementById("gameOverAudio");
+			    cheerAudio.play();
+			}
+		}
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.Scoreboard;

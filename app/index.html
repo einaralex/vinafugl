@@ -32,6 +32,7 @@
 
         <div class="GameCanvas">
             <div class="world">
+                <button id="muteButton" ng-click="muteAudio=true">Mute</button>
                 <div class="background"></div>
                 <div class="platforms"></div>
                 <div class="entities"></div>
@@ -48,13 +49,18 @@
                     <button class="Scoreboard-restart">
                         <span class="Scoreboard-restartText">Restart</span>
                     </button>
+                    <audio id="gameOverAudio">
+                        <source src="audio/Cheer.mp3" type="audio/mp3">
+                        Your user agent does not support the HTML5 Audio element.
+                    </audio>
+                    <audio id="jumpingAudio">
+                        <source src="audio/Jump.mp3" type="audio/mp3">
+                        Your user agent does not support the HTML5 Audio element.
+                    </audio>
                 </div>
                 <div class="ground"></div>
             </div>
         </div>
-
-
-
 
         <!--<div class="GameCanvas">
             
