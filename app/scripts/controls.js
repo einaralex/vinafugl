@@ -80,10 +80,6 @@ window.Controls = (function() {
         var answer = this.freeFalling;
         return answer;
     };
-
-    Controls.prototype.setNotFreeFalling = function() {
-        
-    };
     
     // Export singleton.
     return new Controls();

@@ -30,52 +30,61 @@ window.Game = (function() {
 		console.log("pizzaogpasta");
 		console.log(this.worldEl);
 
+		this.WORLD_WIDTH = this.el[0].clientWidth;
+		this.WORLD_HEIGHT = this.el[0].clientHeight;
+
+
 	};
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
 
+		//var point = 0;
+
 		for (var i=0; i<this.platforms.length; i++)
 		{
-			if (playerpos.x + this.player.width >= this.platforms[i].rect.x && playerpos.y + this.player.height >= this.platforms[i].rect.y &&
-				playerpos.x <= this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.y <= this.platforms[i].rect.y + this.platforms[i].rect.height)
+
+			if (playerpos.x + this.player.width >= this.platforms[i].rect.x && playerpos.y + this.player.height >= this.platforms[i].rect.y && playerpos.x <= this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.y <= this.platforms[i].rect.y + this.platforms[i].rect.height)
 			{
-				console.log("kaka");
+				console.log("ÓNEI");
 				return true;
 			}
-			else if (playerpos.x > this.platforms[i].rect.x + this.platforms[i].rect.width){
-				//console.log("hnetusmuuuu");
-				//var won = "hasWon";
-				//return won;
-			}
+			/*else if (playerpos.x > this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.x > this.platforms[i+1].rect.x + this.platforms[i+1].rect.width){
+
+				if (this.platforms[i].passed === false && this.platforms[i+1].passed === false)
+				{
+					this.platforms[i].passed = true;
+					this.platforms[i+1].passed = true;
+					console.log("STIG");
+					this.player.pointGained();
+				}
 		}
-	};
+			else
+			{
+				return false;
+			}*/
+				/**/
 
-	Game.prototype.getPoint = function() {
-
-		for (var i = 0; i < this.platforms.length; i++)
-		{
-			console.log("HAPPY...");
 		}
 		
 	};
 
 	Game.prototype.createWorld = function () {
 
-	    for (var i=1, bil=0; i<=50; i++, bil = bil + 400)
+	    for (var i=1, bil=0; i<=20; i++, bil = bil + 600)
 	    {
 	    	this.addPlatform(new Platform({
 				x: bil,
 				y: 0,
-				width: 100 , //* (1 + Math.random()*0.3),
-				height: 200 + (200 * Math.random()*0.2)
+				width: 100, //* (1 + Math.random()*0.3),
+				height: 200 + (50 * Math.random())
 	    	}));
 
 
 	    	this.addPlatform(new Platform({
 				x: bil,
-				y: 400  + (400*Math.random()*0.2),
-				width: 80 ,
-				height: 200
+				y: 450,
+				width: 100 ,
+				height: 200 + (50 * Math.random()),
 	    	}));
 	    }
 	};
@@ -123,7 +132,7 @@ window.Game = (function() {
 
 
 	    this.worldEl.css({
-	      left: -this.viewport.x,
+	      left: -this.viewport.x + 100,
 	      top: -this.viewport.y
 	    });
 
@@ -133,8 +142,8 @@ window.Game = (function() {
 	    });
 
 	    this.ground.css({
-	    	left: + this.viewport.x + 511,
-	    	top: + this.viewport.y + 500
+	    	left: + this.viewport.x + 412,
+	    	top: + this.viewport.y + 530
 	    });
 	};
 
@@ -170,9 +179,13 @@ window.Game = (function() {
 			    cheerAudio.play();
 			}
 		}
+
+		var scoreboardEl = this.Scoreboard;
+		scoreboardEl[0].childNodes[1].innerText = this.player.points;
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
-		var scoreboardEl = this.Scoreboard;
+	
 		console.log("kartöflur");
 		//console.log(this.Scoreboard);
 		scoreboardEl
@@ -187,9 +200,7 @@ window.Game = (function() {
 	/**
 	 * Some shared constants.
 	 */
-	Game.prototype.WORLD_WIDTH = 102.4;
-	Game.prototype.WORLD_HEIGHT = 57.6;
-
+	
 	/*Game.prototype.WORLD_WIDTH = this.el[0].clientWidth;
 	Game.prototype.WORLD_HEIGHT = this.el[0].clientHeight;
 	console.log("pulsa");
@@ -198,4 +209,3 @@ window.Game = (function() {
 
 	return Game;
 })();
-

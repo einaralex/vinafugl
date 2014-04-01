@@ -1,5 +1,7 @@
 .Scoreboard {
 	position: absolute;
+	text-align: center;
+  	font-size: 15px 'Helvetica Neue', sans-serif;
 	left: 6.2%;
 	top: 10em;
 	height: 30em;
@@ -13,9 +15,17 @@
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
+
+.Scoreboard-txt {
+	font-size: inherit; 
+	margin-top: 5em;
+	font-family: 'Comic Sans MS', serif;
+	position: absolute;  
+}
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 }
+
 .Scoreboard-restart {
 	margin-top: 20em;
 	font-size: inherit;
@@ -30,4 +40,14 @@
 	color: white;
 }
 
+.Scoreboard-theScore {
+	margin-top: 5em;
+	padding: 0.4em 1.5em;
+	height: 2.8em;
+	width: 2.8em;
+	position: absolute;
+	font-family: 'Comic Sans MS', serif;
+	font-size: 2em;
+	color: white;
+}
 
