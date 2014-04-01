@@ -15,8 +15,8 @@
 	-moz-border-radius-topleft: 50px;
 	border-top-left-radius: 25px;
 
-	animation:slidein 1s infinite;
-		-webkit-animation:slidein 1s infinite;
+	animation:slidein 0.5s infinite;
+		-webkit-animation:slidein 0.5s infinite;
 
 }
 
