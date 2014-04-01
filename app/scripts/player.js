@@ -5,7 +5,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 500; // * 10 pixels per second
+	var SPEED = 300; // * 10 pixels per second
 	var FALLSPEED = 200;
 	var WIDTH = 5;
 	var HEIGHT = 5;
@@ -82,10 +82,14 @@ window.Player = (function() {
 	Player.prototype.checkPlatforms = function() {
 
 		//console.log(this.pos);
-		if (this.game.checkCollisionPlayerVSPlatform(this.pos))
+		if (this.game.checkCollisionPlayerVSPlatform(this.pos) === true)
 		{
 			console.log("GAME LOST");
 			return this.game.gameover();
+		}
+		else if (this.game.checkCollisionPlayerVSPlatform(this.pos) === "hasWon")
+		{
+			console.log("Bingo");
 		}
 	};
 

@@ -40,7 +40,21 @@ window.Game = (function() {
 				console.log("kaka");
 				return true;
 			}
+			else if (playerpos.x > this.platforms[i].rect.x + this.platforms[i].rect.width){
+				console.log("hnetusmuuuu");
+				var won = "hasWon";
+				return won;
+			}
 		}
+	};
+
+	Game.prototype.getPoint = function() {
+
+		for (var i = 0; i < this.platforms.length; i++)
+		{
+			console.log("HAPPY...");
+		}
+		
 	};
 
 	Game.prototype.createWorld = function () {
@@ -142,12 +156,15 @@ window.Game = (function() {
 		this.player.reset();
 	};
 
+
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 
 		// Should be refactored into a Scoreboard class.
 		var that = this;
-		var scoreboardEl = this.el.find('.Scoreboard');
+		var scoreboardEl = this.Scoreboard;
+		console.log("kartöflur");
+		//console.log(this.Scoreboard);
 		scoreboardEl
 			.addClass('is-visible')
 			.find('.Scoreboard-restart')

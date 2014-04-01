@@ -43,11 +43,6 @@
 
 }
 
-/** Tilraun til ad stoppa bakgrunn, kann ekki ad kalla a thetta */
-.GameCanvas.not-moving {
-    -webkit-animation-play-state: paused;
-}
-
 .world {
   position: absolute;
   width: 102.4em;
