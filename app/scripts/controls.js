@@ -27,12 +27,28 @@ window.Controls = (function() {
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this))
-            /*.on('mousedown', this._onmousedown.bind(this))
-            .on('mouseup', this._onmouseup.bind(this))*/;
+            .on('mousedown', this._onmousedown.bind(this))
+            .on('mouseup', this._onmouseup.bind(this));
     };
 
     Controls.prototype._onmousedown = function(e) {
+        console.log("Watwat");
         this._didJump = true;
+
+        if(this._didJump === true) {
+            console.log("jumped");
+            var jumpAudio = document.getElementById("jumpingAudio");
+            jumpAudio.play();
+        }
+        return true;
+    };
+
+    Controls.prototype._onmouseup = function(e) {
+        if (this._didJump) {
+            this._didJump = false;
+            this.freeFalling = true;
+            console.log('Now free falling.');
+        }
     };
 
     Controls.prototype._onKeyDown = function(e) {
