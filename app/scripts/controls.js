@@ -26,18 +26,16 @@ window.Controls = (function() {
         //muteAudio = document.getElementById("muteAudio");
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
-            //.on('mousedown', this._onmousedown.bind(this))
-           // .on('mouseup', this._onmouseup.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('mousedown', this._onmousedown.bind(this))
+            .on('mouseup', this._onmouseup.bind(this));
     };
 
     Controls.prototype._onmousedown = function(e) {
-        console.log("Watwat");
         this._didJump = true;
 
         if(this._didJump === true) {
-            console.log("jumped");
-            var jumpAudio = document.getElementById("jumpingAudio");
+            var jumpAudio = document.getElementById('jumpingAudio');
             jumpAudio.play();
         }
         return true;
@@ -56,8 +54,7 @@ window.Controls = (function() {
             this._didJump = true;
 
             if(this._didJump === true) {
-                console.log("jumped");
-                var jumpAudio = document.getElementById("jumpingAudio");
+                var jumpAudio = document.getElementById('jumpingAudio');
                 jumpAudio.play();
             }
         }
@@ -75,12 +72,10 @@ window.Controls = (function() {
             var keyName = KEYS[e.keyCode];
 
             if (this._didJump) {
-                this._didJump = false; 
+                this._didJump = false;
                 this.freeFalling = true;
-                console.log('Now free falling.');
             }
 
-            console.log(keyName);
             this.keys[keyName] = false;
             return false;
         }

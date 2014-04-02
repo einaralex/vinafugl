@@ -1,7 +1,5 @@
 window.Platform = (function(){
     'use strict';
-
-    var SPEED = 200;
     
     var Platform = function (rect){
         this.rect = rect;
@@ -9,7 +7,7 @@ window.Platform = (function(){
 
         this.el = $('<div class="platform">');
         this.el.css({
-            left: rect.x, 
+            left: rect.x,
             top: rect.y,
             width: rect.width,
             height: rect.height
@@ -17,15 +15,6 @@ window.Platform = (function(){
         this.pos = { x: 0, y: 0 };
         this.passed = false;
     };
-
-    /*Platform.prototype.onFrame = function(delta) {
-        console.log("Svínasúpa");
-        this.pos.x += delta * SPEED;
-
-        this.el.css('transform', 'translate(' + this.pos.x + 'px, ' + this.pos.y + 'px)');
-
-    };*/
-
 
     return Platform;
 
