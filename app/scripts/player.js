@@ -10,9 +10,6 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 300;
 	var INITIAL_POSITION_Y = 250;
-	// x2 = 70 + 5 = 70 - 75
-	// y2 = 20 + 5 = 20 - 25
-
 	var Player = function(el, game) {
 
 		this.el = el;
@@ -41,7 +38,6 @@ window.Player = (function() {
 			this.game.platforms.pop();
 		}
 		this.points = 0;
-
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -49,7 +45,7 @@ window.Player = (function() {
 		//console.log(delta);
 
 
-		if (Controls.keys.space) {
+		if (Controls._didJump) {
 			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
 			//this.pos.x += delta * SPEED;
