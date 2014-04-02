@@ -77,7 +77,7 @@ window.Game = (function() {
 
 			var upP = new Platform({
 				x: bil,
-				y: -400 / (1 + percentage),
+				y: -500 / (1 + percentage),
 				width: 100, //* (1 + Math.random()*0.3),
 				height: 400 
 			});
