@@ -19,6 +19,29 @@
     to { background-position: 65% 0; }
 }
 
+
+@keyframes animateGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-moz-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-webkit-keyframes animatedGround {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+}
+@-ms-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-o-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+
+
 .GameCanvas {
     font-size: 10px;
     position: absolute;

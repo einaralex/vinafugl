@@ -15,17 +15,9 @@
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
-
-.Scoreboard-txt {
-	font-size: inherit; 
-	margin-top: 5em;
-	font-family: 'Comic Sans MS', serif;
-	position: absolute;  
-}
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 }
-
 .Scoreboard-restart {
 	margin-top: 20em;
 	font-size: inherit;
@@ -51,3 +43,10 @@
 	color: white;
 }
 
+
+.Scoreboard-txt {
+	font-size: 40px 'Helvetica Neue', sans-serif;
+	margin-top: 5em;
+	font-family: 'Comic Sans MS', serif;
+	position: absolute;  
+}
