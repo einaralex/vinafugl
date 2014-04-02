@@ -40,13 +40,11 @@ window.Controls = (function() {
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
 
-            //if(muteAudio === false) {     // Á eftir að klára að laga!
-                if(this._didJump === true) {
-                    console.log("jumped");
-                    var jumpAudio = document.getElementById("jumpingAudio");
-                    jumpAudio.play();
-                }
-            //}
+            if(this._didJump === true) {
+                console.log("jumped");
+                var jumpAudio = document.getElementById("jumpingAudio");
+                jumpAudio.play();
+            }
             console.log(this._didJump);
         }
 
@@ -62,8 +60,7 @@ window.Controls = (function() {
         if (e.keyCode in KEYS) {
             var keyName = KEYS[e.keyCode];
 
-            if (this._didJump)
-            {
+            if (this._didJump) {
                 this.freeFalling = true;
                 console.log('Now free falling.');
             }

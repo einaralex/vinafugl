@@ -35,28 +35,23 @@ window.Game = (function() {
 	};
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
-
-		for (var i=0; i<this.platforms.length; i++)
-		{
+		for (var i=0; i<this.platforms.length; i++){
 			//console.log("FOFOFOFOFOFOFOFOFO");
 			if (playerpos.x + this.player.width >= this.platforms[i].upPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].upPlat.rect.y &&
 				playerpos.x <= this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width &&
-				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height)
-			{
+				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height) {
 				console.log("ÓNEI");
 				return false;
 			}
 			else if (playerpos.x + this.player.width >= this.platforms[i].downPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].downPlat.rect.y &&
 				playerpos.x <= this.platforms[i].downPlat.rect.x + this.platforms[i].downPlat.rect.width &&
-				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height)
-			{
+				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height){
 				console.log("SHI");
 				return false;
 			}
-			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
-			{
+			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width){
 				//console.log("fooooooo");
 				this.platforms[i].upPlat.passed = true; 
 			}
@@ -64,13 +59,9 @@ window.Game = (function() {
 	};
 
 	Game.prototype.checkForCheckPoint = function(playerpos) {
-
-		for (var i=0; i<this.platforms.length; i++)
-		{
-			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
-			{
-				if (this.platforms[i].upPlat.passed !== true)
-				{
+		for (var i=0; i<this.platforms.length; i++){
+			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width){
+				if (this.platforms[i].upPlat.passed !== true){
 					return true;
 				}
 			}
@@ -79,8 +70,7 @@ window.Game = (function() {
 
 	Game.prototype.createWorld = function () {
 
-	    for (var i=0, bil=500; i<=10; i++, bil = bil + 1000)
-	    {
+	    for (var i=0, bil=500; i<=10; i++, bil = bil + 1000) {
 			var upP = new Platform({
 				x: bil,
 				y: 0,
@@ -108,20 +98,16 @@ window.Game = (function() {
 
 	    console.log("Heimurinn er tilbúinn");
 	    console.log(this.platforms);
-	    
 	};
 
 	Game.prototype.addPlatform = function(platPair_) {
-
 		this.platformsEl.append(platPair_.upPlat.el);
 		this.platformsEl.append(platPair_.downPlat.el);
 		this.platforms.push(platPair_);
-		
 	};
 
 	Game.prototype.onFrame = function() {
 		// Check if the game loop should stop.
-
 		if (!this.isPlaying) {
 			return;
 		}
@@ -139,7 +125,6 @@ window.Game = (function() {
 	};
 
 	Game.prototype.updateViewport = function() {
-
 		var minX = this.viewport.x + VIEWPORT_PADDING;
     	var maxX = this.viewport.x + this.viewport.width + VIEWPORT_PADDING;
 
@@ -193,7 +178,6 @@ window.Game = (function() {
 		this.isPlaying = true;
 		var backgroundMusic = document.getElementById("backgroundMusicOn");
 		backgroundMusic.play();
-		this.player.gravity
 	};
 
 	Game.prototype.reset = function() {
