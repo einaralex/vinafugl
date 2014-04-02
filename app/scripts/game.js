@@ -66,7 +66,7 @@ window.Game = (function() {
 
 	Game.prototype.checkForCheckPoint = function(playerpos) {
 
-		for (var i=0; i<this.platforms.length; i++)
+		for (var i=0; i < this.platforms.length; i++)
 		{
 			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
 			{
@@ -80,20 +80,25 @@ window.Game = (function() {
 
 	Game.prototype.createWorld = function () {
 
-	    for (var i=0, bil=500; i<=10; i++, bil = bil + 1000)
+	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000)
 	    {
+	    	var percentage = (Math.random()*0.7);
+
+	    	console.log("percentage");
+	    	console.log(percentage);
+
 			var upP = new Platform({
 				x: bil,
-				y: 0,
+				y: -300 * (1 + percentage),
 				width: 100, //* (1 + Math.random()*0.3),
-				height: 200 
+				height: 530 
 			});
 
 			var downP = new Platform({
 				x: bil,
-				y: 450,
-				width: 100 ,
-				height: 200
+				y: 400 / (1 + percentage ),
+				width: 100,
+				height: 530
 			});
 
 	    	var platPair = {
@@ -203,8 +208,9 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		if(this.isPlaying === false) {
-		    var lostAudio = document.getElementById("gameLostAudio");
-		    lostAudio.play();
+		    var cheerAudio = document.getElementById("gameOverAudio");
+		    console.log(cheerAudio);
+		    cheerAudio.play();
 		}
 	
 		var scoreboardEl = this.Scoreboard;
