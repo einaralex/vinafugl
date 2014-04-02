@@ -74,16 +74,16 @@ window.Game = (function() {
 
 			var upP = new Platform({
 				x: bil,
-				y: -500 / (1 + percentage),
+				y: 0,
 				width: 100, //* (1 + Math.random()*0.3),
-				height: 400 
+				height: this.el[0].clientHeight/5
 			});
 
 			var downP = new Platform({
 				x: bil,
-				y: 500 / (1 + (1-percentage) ),
+				y: this.el[0].clientHeight - this.el[0].clientHeight/5,
 				width: 100,
-				height: 530
+				height: this.el[0].clientHeight/5
 			});
 
 	    	var platPair = {
@@ -138,20 +138,20 @@ window.Game = (function() {
 	      top: -this.viewport.y
 	    });
 
-	    this.Scoreboard.css({
+	    /*this.Scoreboard.css({
 	    	left: +this.viewport.x + 300,
 	      	top: +this.viewport.y + 100
-	    });
+	    });*/
 
 	    this.ground.css({
-	    	left: + this.viewport.x + 412,
-	    	top: + this.viewport.y + 530
+	    	left: + this.viewport.x -  100
+	    	/*top: + this.viewport.y + 530 nuna?*/
 	    });
 
-	    this.muteButton.css({
+	    /*this.muteButton.css({
 	    	left: + this.viewport.x - 90,
 	    	top: + this.viewport.y + 5
-	    });
+	    });*/
 
 	    this.playButton.css({
 	    	left: + this.viewport.x - 90,
@@ -192,9 +192,8 @@ window.Game = (function() {
 		    var lostAudio = document.getElementById("gameLostAudio");
 		    lostAudio.play();
 		}
-	
 		var scoreboardEl = this.Scoreboard;
-		scoreboardEl[0].childNodes[1].innerText = this.player.points;
+		scoreboardEl[0].childNodes[5].innerText = this.player.points;
 		
 		// Should be refactored into a Scoreboard class.
 		var that = this;

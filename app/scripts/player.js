@@ -8,8 +8,9 @@ window.Player = (function() {
 	var SPEED = 1000; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
-	var INITIAL_POSITION_X = 300;
-	var INITIAL_POSITION_Y = 250;
+
+	var INITIAL_POSITION_X = 250;
+	var INITIAL_POSITION_Y = 300;
 
 	var Player = function(el, game) {
 
@@ -17,6 +18,8 @@ window.Player = (function() {
 		this.game = game;
 		this.pos = { x: 0, y: 0 };
 		this.width = this.el[0].clientWidth;
+		INITIAL_POSITION_Y = game.el[0].clientHeight/3.5;
+		INITIAL_POSITION_X = game.el[0].clientWidth/5;
 		this.height = this.el[0].clientHeight;
 		this.points = 0;
 	};
