@@ -59,13 +59,9 @@ window.Game = (function() {
 	};
 
 	Game.prototype.checkForCheckPoint = function(playerpos) {
-
-		for (var i=0; i < this.platforms.length; i++)
-		{
-			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
-			{
-				if (this.platforms[i].upPlat.passed !== true)
-				{
+		for (var i=0; i < this.platforms.length; i++) {
+			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width) {
+				if (this.platforms[i].upPlat.passed !== true) {
 					return true;
 				}
 			}
@@ -73,10 +69,7 @@ window.Game = (function() {
 	};
 
 	Game.prototype.createWorld = function () {
-
-
-	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000)
-	    {
+	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000){
 	    	var percentage = (Math.random()*0.7);
 
 	    	console.log("percentage");
@@ -198,7 +191,7 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		if(this.isPlaying === false) {
-		    var cheerAudio = document.getElementById("gameCheerAudio");
+		    var cheerAudio = document.getElementById("gameLostAudio");
 		    cheerAudio.play();
 		}
 	
