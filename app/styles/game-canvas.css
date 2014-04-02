@@ -40,6 +40,13 @@
     to { background-position: 65% 0; }
 }
 
+#muteButton {
+    /* Þetta er í vinnslu vinir
+    */
+    position: relative;
+    background-color: black;
+}
+
 .GameCanvas {
     font-size: 10px;
     position: absolute;

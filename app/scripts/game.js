@@ -3,6 +3,7 @@ window.Game = (function() {
 	'use strict';
 
 	var VIEWPORT_PADDING = 200;
+	var muteAudio = false;
 
 	/**
 	 * Main game class.
@@ -163,20 +164,28 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-
+		if(muteAudio === false) {
+			var backgroundMusic = document.getElementById("backgroundMusicOn");
+			backgroundMusic.play();
+		}
 	};
 
 	Game.prototype.reset = function() {
 		this.player.reset();
 	};
 
-
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		if(muteAudio === false) {	// A eftir að klara
+			if(this.isPlaying === false) {
+			    var cheerAudio = document.getElementById("gameOverAudio");
+			    cheerAudio.play();
+			}
+		}
 
 		var scoreboardEl = this.Scoreboard;
 		scoreboardEl[0].childNodes[1].innerText = this.player.points;
-
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 	
