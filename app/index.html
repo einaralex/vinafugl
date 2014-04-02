@@ -16,7 +16,6 @@
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
-        
         <link rel="stylesheet" href="styles/game-canvas.css">
         <link rel="stylesheet" href="styles/player.css">
         <link rel="stylesheet" href="styles/scoreboard.css">
@@ -31,14 +30,12 @@
                 document.getElementById('backgroundMusicOn').muted = true;
                 document.getElementById('jumpingAudio').muted = true;
                 document.getElementById('gameLostAudio').muted = true;
-                document.getElementById('gameWonAudio').muted = false;
             }
             function playAudio()
             {
                 document.getElementById('backgroundMusicOn').muted = false;
                 document.getElementById('jumpingAudio').muted = false;
                 document.getElementById('gameLostAudio').muted = false;
-                document.getElementById('gameWonAudio').muted = false;
             }
         </script>
         <!--[if lt IE 10]>
@@ -74,37 +71,15 @@
                     </button>
                     <audio id="jumpingAudio">
                         <source src="audio/Jump.mp3" type="audio/mp3">
+                        Your user agent does not support the HTML5 Audio element.
                     <audio id="gameLostAudio">
                         <source src="audio/Lost.mp3" type="audio/mp3">
-                        Your user agent does not support the HTML5 Audio element.
-                    </audio>
-                    <audio id="gameWonAudio">
-                        <source src="audio/Cheer.mp3" type="audio/mp3">
-                        Your user agent does not support the HTML5 Audio element.
-                    </audio>
                         Your user agent does not support the HTML5 Audio element.
                     </audio>
                 </div>
                 <div class="ground"></div>
             </div>
         </div>
-
-        <!--<div class="GameCanvas">
-            
-            <div class="Player">
-                <div class="Player-eyes"></div>
-                <div class="Player-beak"></div>
-                <div class="Player-wings"></div>
-            </div>
-
-
-            <div class="Scoreboard">
-                <button class="Scoreboard-restart">
-                    <span class="Scoreboard-restartText">Restart</span>
-                </button>
-            </div>
-        </div> -->
-
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

@@ -30,34 +30,28 @@ window.Game = (function() {
 		console.log("pizzaogpasta");
 		console.log(this.worldEl);
 
-
 		this.WORLD_WIDTH = this.el[0].clientWidth;
 		this.WORLD_HEIGHT = this.el[0].clientHeight;
 	};
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
-
-		for (var i=0; i<this.platforms.length; i++)
-		{
+		for (var i=0; i<this.platforms.length; i++){
 			//console.log("FOFOFOFOFOFOFOFOFO");
 			if (playerpos.x + this.player.width >= this.platforms[i].upPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].upPlat.rect.y &&
 				playerpos.x <= this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width &&
-				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height)
-			{
+				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height) {
 				console.log("ÓNEI");
 				return false;
 			}
 			else if (playerpos.x + this.player.width >= this.platforms[i].downPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].downPlat.rect.y &&
 				playerpos.x <= this.platforms[i].downPlat.rect.x + this.platforms[i].downPlat.rect.width &&
-				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height)
-			{
+				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height){
 				console.log("SHI");
 				return false;
 			}
-			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
-			{
+			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width){
 				//console.log("fooooooo");
 				this.platforms[i].upPlat.passed = true; 
 			}
@@ -79,6 +73,7 @@ window.Game = (function() {
 	};
 
 	Game.prototype.createWorld = function () {
+
 
 	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000)
 	    {
@@ -114,20 +109,16 @@ window.Game = (function() {
 
 	    console.log("Heimurinn er tilbúinn");
 	    console.log(this.platforms);
-	    
 	};
 
 	Game.prototype.addPlatform = function(platPair_) {
-
 		this.platformsEl.append(platPair_.upPlat.el);
 		this.platformsEl.append(platPair_.downPlat.el);
 		this.platforms.push(platPair_);
-		
 	};
 
 	Game.prototype.onFrame = function() {
 		// Check if the game loop should stop.
-
 		if (!this.isPlaying) {
 			return;
 		}
@@ -145,7 +136,6 @@ window.Game = (function() {
 	};
 
 	Game.prototype.updateViewport = function() {
-
 		var minX = this.viewport.x + VIEWPORT_PADDING;
     	var maxX = this.viewport.x + this.viewport.width + VIEWPORT_PADDING;
 
