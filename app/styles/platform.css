@@ -1,10 +1,9 @@
 .platform {
-
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 0;
+	position: absolute;
+  	right: 0;
+  	left: 0;
+  	top: 0;
   
-  background: #ba4a55;
-  transform-origin: bottom left;
+  	background: #ba4a55;
+  	transform-origin: bottom left;
 }

@@ -19,29 +19,6 @@
     to { background-position: 65% 0; }
 }
 
-
-@keyframes animateGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-moz-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-webkit-keyframes animatedGround {
-    from { background-position: 100% 0; }
-    to { background-position: 0% 0; }
-}
-@-ms-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-o-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-
-
 .GameCanvas {
     font-size: 10px;
     position: absolute;
@@ -53,7 +30,6 @@
     margin-top: -28.8em;
     overflow: hidden;
     background-image: url(images/background.png);
-
     background-position: 0px 0px;
     background-repeat: repeat-x;
 
@@ -70,25 +46,25 @@
     height: 57.6em;
 }
 
-@keyframes animateGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
+@keyframes animatedGround {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
 }
 @-moz-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
 }
 @-webkit-keyframes animatedGround {
     from { background-position: 100% 0; }
-    to { background-position: 0% 0; }
+    to { background-position: 0 0; }
 }
 @-ms-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
 }
 @-o-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
 }
 
 .ground {
@@ -98,7 +74,6 @@
     margin-left: -51.2em;
     overflow: hidden;
     background-image: url(images/ground.png);
-
     background-position: center bottom;
     background-repeat: repeat-x;
 
@@ -147,8 +122,9 @@
     font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
-    width: 7.4em;
+    width: 10.4em;
     height: 2.6em;
+    z-index: 1;
 
     animation: animatedMuteButton 3s linear infinite;
     -moz-animation: animatedMuteButton 3s linear infinite;
@@ -200,8 +176,9 @@
     font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
-    width: 7.4em;
+    width: 10.4em;
     height: 2.6em;
+    z-index: 1;
 
     animation: animatedPlayButton 3s linear infinite;
     -moz-animation: animatedPlayButton 3s linear infinite;
