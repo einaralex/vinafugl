@@ -29,9 +29,12 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
         <div class="GameCanvas">
             <div class="world">
+                <audio id="backgroundMusicOn">
+                    <source src="audio/BackgroundMusic.mp3" type="audio/mp3">
+                    Your user agent does not support the HTML5 Audio element.
+                </audio>
                 <button id="muteButton" ng-click="muteAudio=true">Mute</button>
                 <div class="background"></div>
                 <div class="platforms"></div>

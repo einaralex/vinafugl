@@ -164,7 +164,10 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-
+		if(muteAudio === false) {
+			var backgroundMusic = document.getElementById("backgroundMusicOn");
+			backgroundMusic.play();
+		}
 	};
 
 	Game.prototype.reset = function() {
