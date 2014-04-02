@@ -38,62 +38,86 @@ window.Game = (function() {
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
 
-		//var point = 0;
+		for (var i=0; i<this.platforms.length; i++)
+		{
+			//console.log("FOFOFOFOFOFOFOFOFO");
+			if (playerpos.x + this.player.width >= this.platforms[i].upPlat.rect.x &&
+				playerpos.y + this.player.height >= this.platforms[i].upPlat.rect.y &&
+				playerpos.x <= this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width &&
+				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height)
+			{
+				console.log("ÓNEI");
+				return false;
+			}
+			else if (playerpos.x + this.player.width >= this.platforms[i].downPlat.rect.x &&
+				playerpos.y + this.player.height >= this.platforms[i].downPlat.rect.y &&
+				playerpos.x <= this.platforms[i].downPlat.rect.x + this.platforms[i].downPlat.rect.width &&
+				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height)
+			{
+				console.log("SHI");
+				return false;
+			}
+			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
+			{
+				//console.log("fooooooo");
+				this.platforms[i].upPlat.passed = true; 
+			}
+		}
+	};
+
+	Game.prototype.checkForCheckPoint = function(playerpos) {
 
 		for (var i=0; i<this.platforms.length; i++)
 		{
-
-			if (playerpos.x + this.player.width >= this.platforms[i].rect.x && playerpos.y + this.player.height >= this.platforms[i].rect.y && playerpos.x <= this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.y <= this.platforms[i].rect.y + this.platforms[i].rect.height)
+			if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width)
 			{
-				console.log("ÓNEI");
-				return true;
-			}
-			/*else if (playerpos.x > this.platforms[i].rect.x + this.platforms[i].rect.width && playerpos.x > this.platforms[i+1].rect.x + this.platforms[i+1].rect.width){
-
-				if (this.platforms[i].passed === false && this.platforms[i+1].passed === false)
+				if (this.platforms[i].upPlat.passed !== true)
 				{
-					this.platforms[i].passed = true;
-					this.platforms[i+1].passed = true;
-					console.log("STIG");
-					this.player.pointGained();
+					return true;
 				}
+			}
 		}
-			else
-			{
-				return false;
-			}*/
-				/**/
-
-		}
-		
 	};
 
 	Game.prototype.createWorld = function () {
 
-	    for (var i=1, bil=0; i<=20; i++, bil = bil + 600)
+	    for (var i=0, bil=500; i<=10; i++, bil = bil + 1000)
 	    {
-	    	this.addPlatform(new Platform({
+			var upP = new Platform({
 				x: bil,
 				y: 0,
 				width: 100, //* (1 + Math.random()*0.3),
-				height: 200 + (50 * Math.random())
-	    	}));
+				height: 200 
+			});
 
-
-	    	this.addPlatform(new Platform({
+			var downP = new Platform({
 				x: bil,
 				y: 450,
 				width: 100 ,
-				height: 200 + (50 * Math.random()),
-	    	}));
+				height: 200
+			});
+
+	    	var platPair = {
+	    		upPlat: upP,
+	    		downPlat: downP
+	    	};
+
+	    	console.log("COUNT");
+	    	console.log(platPair);
+
+	    	this.addPlatform(platPair);
 	    }
+
+	    console.log("Heimurinn er tilbúinn");
+	    console.log(this.platforms);
+	    
 	};
 
-	Game.prototype.addPlatform = function(platform) {
+	Game.prototype.addPlatform = function(platPair_) {
 
-		this.entities.push(platform);
-		this.platformsEl.append(platform.el);
-		this.platforms.push(platform);
+		this.platformsEl.append(platPair_.upPlat.el);
+		this.platformsEl.append(platPair_.downPlat.el);
+		this.platforms.push(platPair_);
 		
 	};
 
@@ -147,9 +171,6 @@ window.Game = (function() {
 	    });
 	};
 
-	/**
-	 * Starts a new game.
-	 */
 	Game.prototype.start = function() {
 
 		this.reset();
@@ -199,16 +220,6 @@ window.Game = (function() {
 					that.start();
 				});
 	};
-
-	/**
-	 * Some shared constants.
-	 */
-	
-	/*Game.prototype.WORLD_WIDTH = this.el[0].clientWidth;
-	Game.prototype.WORLD_HEIGHT = this.el[0].clientHeight;
-	console.log("pulsa");
-	console.log(Game.prototype.WORLD_WIDTH);
-	console.log(Game.prototype.WORLD_HEIGHT)*/
 
 	return Game;
 })();

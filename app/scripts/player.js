@@ -8,7 +8,7 @@ window.Player = (function() {
 	var SPEED = 1000; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
-	var INITIAL_POSITION_X = -300;
+	var INITIAL_POSITION_X = 300;
 	var INITIAL_POSITION_Y = 250;
 	// x2 = 70 + 5 = 70 - 75
 	// y2 = 20 + 5 = 20 - 25
@@ -24,14 +24,22 @@ window.Player = (function() {
 	};
 
 	Player.prototype.pointGained = function(){
-		this.points = this.points+1;
+		this.points += 1;
 	};
 
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		console.log("Pulsuvagn");
-		console.log(this.game.entities);
+
+		//console.log(this.game.entities);
+		console.log(this.game.platforms);
+
+		for (var i=0; i<=this.game.entities.length; i++)
+		{
+			this.game.entities.pop();
+			this.game.platforms.pop();
+		}
 		this.points = 0;
 
 	};
@@ -54,8 +62,8 @@ window.Player = (function() {
 		}
 
 		//this.game.checkCollisionPlayerVSPlatform();
-		//this.checkCollisionWithBounds();
-
+		this.checkCollisionWithBounds();
+		this.checkifPoint();
 		this.checkPlatforms();
 
 		// Update UI
@@ -65,26 +73,27 @@ window.Player = (function() {
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
-		if (this.pos.x < 0 || this.pos.x + WIDTH > this.game.WORLD_WIDTH || this.pos.y < 0 || this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+		if ( this.pos.y + HEIGHT > (this.game.WORLD_HEIGHT - 95 )) {
 			return this.game.gameover();
 		}
-	};
-
-	Player.prototype.checkCollisionWithGround = function() {
-
 	};
 
 	Player.prototype.checkPlatforms = function() {
 
 		//console.log(this.pos);
-		if (this.game.checkCollisionPlayerVSPlatform(this.pos) === true)
+		if (this.game.checkCollisionPlayerVSPlatform(this.pos) === false)
 		{
 			console.log("GAME LOST");
 			return this.game.gameover();
 		}
-		else if (this.game.checkCollisionPlayerVSPlatform(this.pos) === "hasWon")
+	};
+
+	Player.prototype.checkifPoint = function() {
+		if (this.game.checkForCheckPoint(this.pos) === true)
 		{
-			console.log("Bingo");
+			console.log("Euríka");
+			this.pointGained();
+			console.log(this.points);
 		}
 	};
 
