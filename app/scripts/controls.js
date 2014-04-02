@@ -25,7 +25,13 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            /*.on('mousedown', this._onmousedown.bind(this))
+            .on('mouseup', this._onmouseup.bind(this))*/;
+    };
+
+    Controls.prototype._onmousedown = function(e) {
+        this._didJump = true;
     };
 
     Controls.prototype._onKeyDown = function(e) {
