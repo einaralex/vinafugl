@@ -26,9 +26,9 @@ window.Controls = (function() {
         //muteAudio = document.getElementById("muteAudio");
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this))
-            .on('mousedown', this._onmousedown.bind(this))
-            .on('mouseup', this._onmouseup.bind(this));
+            .on('keyup', this._onKeyUp.bind(this));
+            //.on('mousedown', this._onmousedown.bind(this))
+           // .on('mouseup', this._onmouseup.bind(this));
     };
 
     Controls.prototype._onmousedown = function(e) {
@@ -47,7 +47,6 @@ window.Controls = (function() {
         if (this._didJump) {
             this._didJump = false;
             this.freeFalling = true;
-            console.log('Now free falling.');
         }
     };
 
@@ -61,7 +60,6 @@ window.Controls = (function() {
                 var jumpAudio = document.getElementById("jumpingAudio");
                 jumpAudio.play();
             }
-            console.log(this._didJump);
         }
 
         // Remember that this button is down.
@@ -77,7 +75,7 @@ window.Controls = (function() {
             var keyName = KEYS[e.keyCode];
 
             if (this._didJump) {
-                this._didJump = false;
+                this._didJump = false; 
                 this.freeFalling = true;
                 console.log('Now free falling.');
             }

@@ -10,6 +10,7 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 300;
 	var INITIAL_POSITION_Y = 250;
+
 	var Player = function(el, game) {
 
 		this.el = el;
@@ -25,15 +26,10 @@ window.Player = (function() {
 	};
 
 	Player.prototype.reset = function() {
+
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		console.log("Pulsuvagn");
-
 		Controls._didJump = false;
-
-		//console.log(this.game.entities);
-		console.log(this.game.platforms);
-
 		this.points = 0;
 	};
 
@@ -41,8 +37,8 @@ window.Player = (function() {
 		//console.log("delta");
 		//console.log(delta);
 
-
 		if (Controls._didJump) {
+			this.isPlaying = true;
 			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
 			//this.pos.x += delta * SPEED;

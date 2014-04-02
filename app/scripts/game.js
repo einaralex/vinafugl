@@ -69,11 +69,8 @@ window.Game = (function() {
 	};
 
 	Game.prototype.createWorld = function () {
-	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000){
+	    for (var i=0, bil=1000; i<50; i++, bil = bil + 1000){
 	    	var percentage = (Math.random());
-
-	    	console.log("percentage");
-	    	console.log(percentage);
 
 			var upP = new Platform({
 				x: bil,
@@ -94,14 +91,8 @@ window.Game = (function() {
 	    		downPlat: downP
 	    	};
 
-	    	console.log("COUNT");
-	    	console.log(platPair);
-
 	    	this.addPlatform(platPair);
 	    }
-
-	    console.log("Heimurinn er tilbúinn");
-	    console.log(this.platforms);
 	};
 
 	Game.prototype.addPlatform = function(platPair_) {
@@ -114,6 +105,7 @@ window.Game = (function() {
 		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
+			console.log("HA");
 		}
 
 		// Calculate how long since last frame in seconds.
@@ -169,17 +161,17 @@ window.Game = (function() {
 
 	Game.prototype.start = function() {
 		this.reset();
-	    console.log(this.entities);
 
 	    // Set the stage.
 	    this.createWorld();
-	    console.log("World created");
+	  
 	    this.player.reset();
 	    this.viewport = {x: 0, y: 0, width: 0, height: 0};
 
 		this.lastFrame = +new Date() / 1000;
-		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
+		window.requestAnimationFrame(this.onFrame);
+		
 		var backgroundMusic = document.getElementById("backgroundMusicOn");
 		backgroundMusic.play();
 	};
