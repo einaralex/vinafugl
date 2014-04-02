@@ -77,6 +77,7 @@ window.Controls = (function() {
             var keyName = KEYS[e.keyCode];
 
             if (this._didJump) {
+                this._didJump = false;
                 this.freeFalling = true;
                 console.log('Now free falling.');
             }

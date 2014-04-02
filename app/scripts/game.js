@@ -77,14 +77,14 @@ window.Game = (function() {
 
 			var upP = new Platform({
 				x: bil,
-				y: -300 * (1 + percentage),
+				y: -600 * (1 + percentage),
 				width: 100, //* (1 + Math.random()*0.3),
-				height: 530 
+				height: 700 
 			});
 
 			var downP = new Platform({
 				x: bil,
-				y: 400 / (1 + percentage ),
+				y: 600 * (1 - percentage ),
 				width: 100,
 				height: 530
 			});
