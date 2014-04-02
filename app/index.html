@@ -25,6 +25,20 @@
         <!-- endbuild -->
     </head>
     <body>
+        <script>
+            function muteAudio()
+            {
+                document.getElementById('backgroundMusicOn').muted = true;
+                document.getElementById('gameOverAudio').muted = true;
+                document.getElementById('jumpingAudio').muted = true;
+            }
+            function playAudio()
+            {
+                document.getElementById('backgroundMusicOn').muted = false;
+                document.getElementById('gameOverAudio').muted = false;
+                document.getElementById('jumpingAudio').muted = false;
+            }
+        </script>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -35,8 +49,9 @@
                     <source src="audio/BackgroundMusic.mp3" type="audio/mp3">
                     Your user agent does not support the HTML5 Audio element.
                 </audio>
-                <button class="muteButton" onclick="document.getElementById('backgroundMusicOn').muted = true; document.getElementById('gameOverAudio').muted = true; document.getElementById('jumpingAudio').muted = true;">Turn music off</button>
-                <button class="playButton" onclick="document.getElementById('backgroundMusicOn').muted = false; document.getElementById('gameOverAudio').muted = false; document.getElementById('jumpingAudio').muted = false;">Turn music on</button>
+                <button class="muteButton" onclick="muteAudio()">Turn music off</button>
+                <button class="playButton" onclick="playAudio()">Turn music on</button>
+                
                 <div class="background"></div>
                 <div class="platforms"></div>
                 <div class="entities"></div>
@@ -90,7 +105,6 @@
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
-
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/controls.js"></script>

@@ -10,4 +10,9 @@ $(function() {
     console.log(game);
     game.start();
 
+    var muteAudio = function() {
+		document.getElementById('backgroundMusicOn').setAttribute("muted","true");
+		document.getElementById('gameOverAudio').setAttribute("muted","true");
+		document.getElementById('jumpingAudio').setAttribute("muted","true");
+	}
 });
