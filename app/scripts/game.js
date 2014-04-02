@@ -198,8 +198,7 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		if(this.isPlaying === false) {
-		    var cheerAudio = document.getElementById("gameOverAudio");
-		    console.log(cheerAudio);
+		    var cheerAudio = document.getElementById("gameCheerAudio");
 		    cheerAudio.play();
 		}
 	
