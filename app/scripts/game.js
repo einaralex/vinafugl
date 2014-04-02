@@ -70,7 +70,7 @@ window.Game = (function() {
 
 	Game.prototype.createWorld = function () {
 	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000){
-	    	var percentage = (Math.random()*0.7);
+	    	var percentage = (Math.random()*0.65);
 
 	    	console.log("percentage");
 	    	console.log(percentage);
@@ -185,6 +185,12 @@ window.Game = (function() {
 	};
 
 	Game.prototype.reset = function() {
+
+		for (var i=0; i<=this.platforms.length; i++)
+		{
+			this.platforms.pop();
+		}
+
 		this.player.reset();
 	};
 
@@ -200,6 +206,8 @@ window.Game = (function() {
 		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
+		console.log("what are that");
+		console.log(that);
 	
 		console.log("kartöflur");
 		//console.log(this.Scoreboard);

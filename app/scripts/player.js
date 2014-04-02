@@ -29,14 +29,11 @@ window.Player = (function() {
 		this.pos.y = INITIAL_POSITION_Y;
 		console.log("Pulsuvagn");
 
+		Controls._didJump = false;
+
 		//console.log(this.game.entities);
 		console.log(this.game.platforms);
 
-		for (var i=0; i<=this.game.entities.length; i++)
-		{
-			this.game.entities.pop();
-			this.game.platforms.pop();
-		}
 		this.points = 0;
 	};
 
