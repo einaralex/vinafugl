@@ -1,9 +1,7 @@
-
 window.Game = (function() {
 	'use strict';
 
 	var VIEWPORT_PADDING = 200;
-	var muteAudio = false;
 
 	/**
 	 * Main game class.
@@ -24,16 +22,17 @@ window.Game = (function() {
 		this.worldEl = el.find('.world');
 		this.Scoreboard = el.find('.Scoreboard');
 		this.ground = el.find('.ground');
+		this.muteButton = el.find('.muteButton');
+		this.playButton = el.find('.playButton');
 		this.isPlaying = false;
 		this.platforms = [];
 		this.onFrame = this.onFrame.bind(this);
 		console.log("pizzaogpasta");
 		console.log(this.worldEl);
 
+
 		this.WORLD_WIDTH = this.el[0].clientWidth;
 		this.WORLD_HEIGHT = this.el[0].clientHeight;
-
-
 	};
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
@@ -130,7 +129,6 @@ window.Game = (function() {
 	      this.viewport.x = playerX + this.viewport.width - VIEWPORT_PADDING;
 	    }
 
-
 	    this.worldEl.css({
 	      left: -this.viewport.x + 100,
 	      top: -this.viewport.y
@@ -145,13 +143,22 @@ window.Game = (function() {
 	    	left: + this.viewport.x + 412,
 	    	top: + this.viewport.y + 530
 	    });
+
+	    this.muteButton.css({
+	    	left: + this.viewport.x - 90,
+	    	top: + this.viewport.y + 5
+	    });
+
+	    this.playButton.css({
+	    	left: + this.viewport.x - 90,
+	    	top: + this.viewport.y + 40
+	    });
 	};
 
 	/**
 	 * Starts a new game.
 	 */
 	Game.prototype.start = function() {
-
 		this.reset();
 	    console.log(this.entities);
 
@@ -164,10 +171,8 @@ window.Game = (function() {
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
-		if(muteAudio === false) {
-			var backgroundMusic = document.getElementById("backgroundMusicOn");
-			backgroundMusic.play();
-		}
+		var backgroundMusic = document.getElementById("backgroundMusicOn");
+		backgroundMusic.play();
 	};
 
 	Game.prototype.reset = function() {
@@ -176,13 +181,11 @@ window.Game = (function() {
 
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-		if(muteAudio === false) {	// A eftir að klara
-			if(this.isPlaying === false) {
-			    var cheerAudio = document.getElementById("gameOverAudio");
-			    cheerAudio.play();
-			}
+		if(this.isPlaying === false) {
+		    var cheerAudio = document.getElementById("gameOverAudio");
+		    cheerAudio.play();
 		}
-
+	
 		var scoreboardEl = this.Scoreboard;
 		scoreboardEl[0].childNodes[1].innerText = this.player.points;
 		

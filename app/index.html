@@ -35,7 +35,8 @@
                     <source src="audio/BackgroundMusic.mp3" type="audio/mp3">
                     Your user agent does not support the HTML5 Audio element.
                 </audio>
-                <button id="muteButton" ng-click="muteAudio=true">Mute</button>
+                <button class="muteButton" onclick="document.getElementById('backgroundMusicOn').muted = true; document.getElementById('gameOverAudio').muted = true; document.getElementById('jumpingAudio').muted = true;">Turn music off</button>
+                <button class="playButton" onclick="document.getElementById('backgroundMusicOn').muted = false; document.getElementById('gameOverAudio').muted = false; document.getElementById('jumpingAudio').muted = false;">Turn music on</button>
                 <div class="background"></div>
                 <div class="platforms"></div>
                 <div class="entities"></div>

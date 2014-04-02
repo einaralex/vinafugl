@@ -1,4 +1,3 @@
-
 window.Controls = (function() {
     'use strict';
 
@@ -23,6 +22,8 @@ window.Controls = (function() {
         this._didJump = false;
         this.freeFalling = false;
         this.keys = {};
+        //var muteAudio = false;
+        //muteAudio = document.getElementById("muteAudio");
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this));

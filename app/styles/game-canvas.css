@@ -19,34 +19,6 @@
     to { background-position: 65% 0; }
 }
 
-@keyframes animateGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-moz-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-webkit-keyframes animatedGround {
-    from { background-position: 100% 0; }
-    to { background-position: 0% 0; }
-}
-@-ms-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-@-o-keyframes animatedGround {
-    from { background-position: 0 0; }
-    to { background-position: 65% 0; }
-}
-
-#muteButton {
-    /* Þetta er í vinnslu vinir
-    */
-    position: relative;
-    background-color: black;
-}
-
 .GameCanvas {
     font-size: 10px;
     position: absolute;
@@ -75,6 +47,27 @@
     height: 57.6em;
 }
 
+@keyframes animateGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-moz-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-webkit-keyframes animatedGround {
+    from { background-position: 100% 0; }
+    to { background-position: 0% 0; }
+}
+@-ms-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+@-o-keyframes animatedGround {
+    from { background-position: 0 0; }
+    to { background-position: 65% 0; }
+}
+
 .ground {
     position: absolute;
     width: 102.4em;
@@ -91,4 +84,110 @@
     -webkit-animation: animatedGround 3s linear infinite;
     -ms-animation: animatedGround 3s linear infinite;
     -o-animation: animatedGround 3s linear infinite;
+}
+
+@keyframes animatedMuteButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-moz-keyframes animatedMuteButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-webkit-keyframes animatedMuteButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-ms-keyframes animatedMuteButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-o-keyframes animatedMuteButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+
+.muteButton {
+    border-top: 1px solid #464eeb;
+    background: #6965d4;
+    position: absolute;
+    padding: 2px 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 12px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 7.4em;
+    height: 2.6em;
+
+    animation: animatedMuteButton 3s linear infinite;
+    -moz-animation: animatedMuteButton 3s linear infinite;
+    -webkit-animation: animatedMuteButton 3s linear infinite;
+    -ms-animation: animatedMuteButton 3s linear infinite;
+    -o-animation: animatedMuteButton 3s linear infinite;
+}
+
+.muteButton:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+}
+
+@keyframes animatedPlayButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-moz-keyframes animatedPlayButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-webkit-keyframes animatedPlayButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-ms-keyframes animatedPlayButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-o-keyframes animatedPlayButton {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+
+.playButton {
+    border-top: 1px solid #464eeb;
+    background: #6965d4;
+    position: absolute;
+    padding: 2px 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 12px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 7.4em;
+    height: 2.6em;
+
+    animation: animatedPlayButton 3s linear infinite;
+    -moz-animation: animatedPlayButton 3s linear infinite;
+    -webkit-animation: animatedPlayButton 3s linear infinite;
+    -ms-animation: animatedPlayButton 3s linear infinite;
+    -o-animation: animatedPlayButton 3s linear infinite;
+}
+
+.playButton:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
 }
