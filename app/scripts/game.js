@@ -30,7 +30,6 @@ window.Game = (function() {
 		console.log("pizzaogpasta");
 		console.log(this.worldEl);
 
-
 		this.WORLD_WIDTH = this.el[0].clientWidth;
 		this.WORLD_HEIGHT = this.el[0].clientHeight;
 	};
@@ -194,6 +193,7 @@ window.Game = (function() {
 		this.isPlaying = true;
 		var backgroundMusic = document.getElementById("backgroundMusicOn");
 		backgroundMusic.play();
+		this.player.gravity
 	};
 
 	Game.prototype.reset = function() {

@@ -31,14 +31,12 @@
                 document.getElementById('backgroundMusicOn').muted = true;
                 document.getElementById('jumpingAudio').muted = true;
                 document.getElementById('gameLostAudio').muted = true;
-                document.getElementById('gameWonAudio').muted = false;
             }
             function playAudio()
             {
                 document.getElementById('backgroundMusicOn').muted = false;
                 document.getElementById('jumpingAudio').muted = false;
                 document.getElementById('gameLostAudio').muted = false;
-                document.getElementById('gameWonAudio').muted = false;
             }
         </script>
         <!--[if lt IE 10]>
@@ -74,14 +72,9 @@
                     </button>
                     <audio id="jumpingAudio">
                         <source src="audio/Jump.mp3" type="audio/mp3">
+                        Your user agent does not support the HTML5 Audio element.
                     <audio id="gameLostAudio">
                         <source src="audio/Lost.mp3" type="audio/mp3">
-                        Your user agent does not support the HTML5 Audio element.
-                    </audio>
-                    <audio id="gameWonAudio">
-                        <source src="audio/Cheer.mp3" type="audio/mp3">
-                        Your user agent does not support the HTML5 Audio element.
-                    </audio>
                         Your user agent does not support the HTML5 Audio element.
                     </audio>
                 </div>
