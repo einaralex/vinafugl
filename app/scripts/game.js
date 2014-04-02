@@ -70,21 +70,21 @@ window.Game = (function() {
 
 	Game.prototype.createWorld = function () {
 	    for (var i=0, bil=500; i<50; i++, bil = bil + 1000){
-	    	var percentage = (Math.random()*0.65);
+	    	var percentage = (Math.random());
 
 	    	console.log("percentage");
 	    	console.log(percentage);
 
 			var upP = new Platform({
 				x: bil,
-				y: -600 * (1 + percentage),
+				y: -400 / (1 + percentage),
 				width: 100, //* (1 + Math.random()*0.3),
-				height: 700 
+				height: 400 
 			});
 
 			var downP = new Platform({
 				x: bil,
-				y: 600 * (1 - percentage ),
+				y: 500 / (1 + (1-percentage) ),
 				width: 100,
 				height: 530
 			});
