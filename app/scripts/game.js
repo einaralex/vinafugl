@@ -10,12 +10,8 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
-		console.log("Sjadu mig");
-		console.log(this.el);
 
 		this.player = new window.Player(this.el.find('.Player'), this);
-		console.log('Sætabrauðsdrengur');
-		console.log(this.player);
 		this.entities = [];
 		this.platformsEl = el.find('.platforms');
 		this.entitiesEl = el.find('.entities');
@@ -27,8 +23,6 @@ window.Game = (function() {
 		this.isPlaying = false;
 		this.platforms = [];
 		this.onFrame = this.onFrame.bind(this);
-		console.log("pizzaogpasta");
-		console.log(this.worldEl);
 
 		this.WORLD_WIDTH = this.el[0].clientWidth;
 		this.WORLD_HEIGHT = this.el[0].clientHeight;
@@ -36,24 +30,20 @@ window.Game = (function() {
 
 	Game.prototype.checkCollisionPlayerVSPlatform = function (playerpos) {
 		for (var i=0; i<this.platforms.length; i++){
-			//console.log("FOFOFOFOFOFOFOFOFO");
 			if (playerpos.x + this.player.width >= this.platforms[i].upPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].upPlat.rect.y &&
 				playerpos.x <= this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width &&
 				playerpos.y <= this.platforms[i].upPlat.rect.y + this.platforms[i].upPlat.rect.height) {
-				console.log("ÓNEI");
 				return false;
 			}
 			else if (playerpos.x + this.player.width >= this.platforms[i].downPlat.rect.x &&
 				playerpos.y + this.player.height >= this.platforms[i].downPlat.rect.y &&
 				playerpos.x <= this.platforms[i].downPlat.rect.x + this.platforms[i].downPlat.rect.width &&
 				playerpos.y <= this.platforms[i].downPlat.rect.y + this.platforms[i].downPlat.rect.height){
-				console.log("SHI");
 				return false;
 			}
 			else if (playerpos.x > this.platforms[i].upPlat.rect.x + this.platforms[i].upPlat.rect.width){
-				//console.log("fooooooo");
-				this.platforms[i].upPlat.passed = true; 
+				this.platforms[i].upPlat.passed = true;
 			}
 		}
 	};
@@ -69,30 +59,30 @@ window.Game = (function() {
 	};
 
 	Game.prototype.createWorld = function () {
-	    for (var i=0, bil=1000; i<50; i++, bil = bil + 1000){
-	    	var percentage = (Math.random());
+		for (var i=0, bil=1000; i<50; i++, bil = bil + 1000){
+			var percentage = (Math.random()*0.4);
 
 			var upP = new Platform({
 				x: bil,
 				y: 0,
 				width: 100, //* (1 + Math.random()*0.3),
-				height: this.el[0].clientHeight/5
+				height: this.el[0].clientHeight - (this.el[0].clientHeight * (1 - percentage))
 			});
 
 			var downP = new Platform({
 				x: bil,
-				y: this.el[0].clientHeight - this.el[0].clientHeight/5,
+				y: this.el[0].clientHeight - (this.el[0].clientHeight * percentage),
 				width: 100,
-				height: this.el[0].clientHeight/5
+				height: this.el[0].clientHeight
 			});
 
-	    	var platPair = {
-	    		upPlat: upP,
-	    		downPlat: downP
-	    	};
+			var platPair = {
+				upPlat: upP,
+				downPlat: downP
+			};
 
-	    	this.addPlatform(platPair);
-	    }
+			this.addPlatform(platPair);
+		}
 	};
 
 	Game.prototype.addPlatform = function(platPair_) {
@@ -102,13 +92,10 @@ window.Game = (function() {
 	};
 
 	Game.prototype.onFrame = function() {
-		// Check if the game loop should stop.
 		if (!this.isPlaying) {
 			return;
-			console.log("HA");
 		}
 
-		// Calculate how long since last frame in seconds.
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
@@ -122,36 +109,25 @@ window.Game = (function() {
 
 	Game.prototype.updateViewport = function() {
 		var minX = this.viewport.x + VIEWPORT_PADDING;
-    	var maxX = this.viewport.x + this.viewport.width + VIEWPORT_PADDING;
-
-    	var playerX = this.player.pos.x;
+		var maxX = this.viewport.x + this.viewport.width + VIEWPORT_PADDING;
+		var playerX = this.player.pos.x;
 
 	    // Update the viewport if needed.
 	    if (playerX < minX) {
-	      this.viewport.x = playerX - VIEWPORT_PADDING;
-	    } else if (playerX > maxX) {
-	      this.viewport.x = playerX + this.viewport.width - VIEWPORT_PADDING;
-	    }
+			this.viewport.x = playerX - VIEWPORT_PADDING;
+		}
+		else if (playerX > maxX) {
+			this.viewport.x = playerX + this.viewport.width - VIEWPORT_PADDING;
+		}
 
 	    this.worldEl.css({
 	      left: -this.viewport.x + 100,
 	      top: -this.viewport.y
 	    });
 
-	    /*this.Scoreboard.css({
-	    	left: +this.viewport.x + 300,
-	      	top: +this.viewport.y + 100
-	    });*/
-
 	    this.ground.css({
 	    	left: + this.viewport.x -  100
-	    	/*top: + this.viewport.y + 530 nuna?*/
 	    });
-
-	    /*this.muteButton.css({
-	    	left: + this.viewport.x - 90,
-	    	top: + this.viewport.y + 5
-	    });*/
 
 	    this.playButton.css({
 	    	left: + this.viewport.x - 90,
@@ -172,7 +148,7 @@ window.Game = (function() {
 		this.isPlaying = true;
 		window.requestAnimationFrame(this.onFrame);
 		
-		var backgroundMusic = document.getElementById("backgroundMusicOn");
+		var backgroundMusic = document.getElementById('backgroundMusicOn');
 		backgroundMusic.play();
 	};
 
@@ -189,7 +165,7 @@ window.Game = (function() {
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		if(this.isPlaying === false) {
-		    var lostAudio = document.getElementById("gameLostAudio");
+		    var lostAudio = document.getElementById('gameLostAudio');
 		    lostAudio.play();
 		}
 		var scoreboardEl = this.Scoreboard;
@@ -197,11 +173,7 @@ window.Game = (function() {
 		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
-		console.log("what are that");
-		console.log(that);
 	
-		console.log("kartöflur");
-		//console.log(this.Scoreboard);
 		scoreboardEl
 			.addClass('is-visible')
 			.find('.Scoreboard-restart')

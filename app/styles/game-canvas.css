@@ -77,7 +77,6 @@
     background-image: url(images/ground.png);
     background-position: center bottom;
     background-repeat: repeat-x;
-    
     z-index: 1;
 
     animation: animatedGround 3s linear infinite;

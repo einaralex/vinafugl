@@ -6,7 +6,6 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 1000; // * 10 pixels per second
-	var WIDTH = 5;
 	var HEIGHT = 5;
 
 	var INITIAL_POSITION_X = 250;
@@ -37,29 +36,20 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		//console.log("delta");
-		//console.log(delta);
 
 		if (Controls._didJump) {
 			this.isPlaying = true;
-			//this.pos.x += delta * SPEED;
 			this.pos.y -= delta * SPEED;
-			//this.pos.x += delta * SPEED;
 		}
 
 		if (Controls.freeFalling) {
-			//this.pos.x += delta * FALLSPEED;
 			this.pos.y += delta * SPEED/2;
 			this.pos.x += (delta * SPEED/2);
 		}
 
-		//this.game.checkCollisionPlayerVSPlatform();
 		this.checkCollisionWithBounds();
 		this.checkifPoint();
 		this.checkPlatforms();
-
-		// Update UI
-		//console.log(this.el);
 
 		this.el.css('transform', 'translate(' + this.pos.x + 'px, ' + this.pos.y + 'px)');
 	};
@@ -72,10 +62,8 @@ window.Player = (function() {
 
 	Player.prototype.checkPlatforms = function() {
 
-		//console.log(this.pos);
 		if (this.game.checkCollisionPlayerVSPlatform(this.pos) === false)
 		{
-			console.log("GAME LOST");
 			return this.game.gameover();
 		}
 	};
@@ -83,9 +71,7 @@ window.Player = (function() {
 	Player.prototype.checkifPoint = function() {
 		if (this.game.checkForCheckPoint(this.pos) === true)
 		{
-			console.log("Euríka");
 			this.pointGained();
-			console.log(this.points);
 		}
 	};
 
